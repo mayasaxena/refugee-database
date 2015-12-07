@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Part 1-->
@@ -106,10 +107,92 @@
             </objects>
             <point key="canvasLocation" x="726" y="-340"/>
         </scene>
+        <!--Patient Data-->
+        <scene sceneID="qco-kZ-Zv1">
+            <objects>
+                <viewController title="Patient Data" id="VKd-rX-gft" customClass="PartTwoTestViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oqp-IK-DUT"/>
+                        <viewControllerLayoutGuide type="bottom" id="YHr-fL-jdv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jVv-Tg-zCu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FzL-85-zEH">
+                                <rect key="frame" x="264.5" y="285" width="71" height="30"/>
+                                <state key="normal" title="Send data">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendButtonTapped:" destination="VKd-rX-gft" eventType="touchUpInside" id="ld3-MG-Ssk"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVl-7w-f09">
+                                <rect key="frame" x="109.5" y="140" width="81" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCc-WL-UVZ">
+                                <rect key="frame" x="110" y="200" width="80" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vP7-Ch-mSc" userLabel="First name field">
+                                <rect key="frame" x="297" y="135" width="185" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="185" id="mdS-Uo-XJ6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yr4-h5-1lI" userLabel="Last name field">
+                                <rect key="frame" x="297" y="195" width="185" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="185" id="uxI-TG-o5M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patient Information" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ff0-fw-SJf">
+                                <rect key="frame" x="227" y="70" width="146" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JCc-WL-UVZ" firstAttribute="centerY" secondItem="jVv-Tg-zCu" secondAttribute="centerY" multiplier="0.7" id="8lU-Ty-Et3"/>
+                            <constraint firstItem="Yr4-h5-1lI" firstAttribute="centerY" secondItem="jVv-Tg-zCu" secondAttribute="centerY" multiplier="0.7" id="HXG-h2-MN7"/>
+                            <constraint firstItem="JCc-WL-UVZ" firstAttribute="centerX" secondItem="jVv-Tg-zCu" secondAttribute="centerX" multiplier="0.5" id="NQj-V5-Gbg"/>
+                            <constraint firstAttribute="centerX" secondItem="ff0-fw-SJf" secondAttribute="centerX" id="PQa-RI-j7Y"/>
+                            <constraint firstItem="vP7-Ch-mSc" firstAttribute="centerX" secondItem="jVv-Tg-zCu" secondAttribute="centerX" multiplier="1.3" id="PzM-vu-FHj"/>
+                            <constraint firstItem="Yr4-h5-1lI" firstAttribute="centerX" secondItem="jVv-Tg-zCu" secondAttribute="centerX" multiplier="1.3" id="V3d-1s-JvO"/>
+                            <constraint firstAttribute="centerX" secondItem="FzL-85-zEH" secondAttribute="centerX" id="e5G-qj-4lB"/>
+                            <constraint firstItem="jVl-7w-f09" firstAttribute="centerX" secondItem="jVv-Tg-zCu" secondAttribute="centerX" multiplier="0.5" id="gGC-bv-dtw"/>
+                            <constraint firstItem="vP7-Ch-mSc" firstAttribute="centerY" secondItem="jVv-Tg-zCu" secondAttribute="centerY" multiplier="0.5" id="mYH-HE-Xdi"/>
+                            <constraint firstItem="jVl-7w-f09" firstAttribute="centerY" secondItem="jVv-Tg-zCu" secondAttribute="centerY" multiplier="0.5" id="qNh-I5-lrJ"/>
+                            <constraint firstItem="ff0-fw-SJf" firstAttribute="top" secondItem="oqp-IK-DUT" secondAttribute="bottom" constant="50" id="tBa-Eb-QPM"/>
+                            <constraint firstAttribute="centerY" secondItem="FzL-85-zEH" secondAttribute="centerY" id="u1a-Fp-R8N"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Patient Data" image="third" id="eVF-bM-FsX"/>
+                    <connections>
+                        <outlet property="firstNameField" destination="vP7-Ch-mSc" id="gzt-0y-LOQ"/>
+                        <outlet property="lastNameField" destination="Yr4-h5-1lI" id="GFV-se-aAI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Dq-db-fsn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="706" y="430"/>
+        </scene>
         <!--Part 4-->
         <scene sceneID="UfK-kc-98x">
             <objects>
-                <tableViewController id="Ugl-dQ-c9T" userLabel="Part 4" customClass="PartFourTableViewController" sceneMemberID="viewController">
+                <tableViewController title="Part 2" id="Ugl-dQ-c9T" userLabel="Part 4" customClass="PartFourTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cQi-JW-NRP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -158,7 +241,7 @@
                             <outlet property="delegate" destination="Ugl-dQ-c9T" id="wQt-XC-Ff9"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Part 4" image="second" id="5ob-hl-LTj"/>
+                    <tabBarItem key="tabBarItem" title="Part 2" image="second" id="5ob-hl-LTj"/>
                     <connections>
                         <outlet property="tableHeaderView" destination="qr6-uJ-SEr" id="nB1-qq-WY6"/>
                     </connections>
@@ -183,7 +266,7 @@ Ask the patient how much the symptoms bothered them in the past week</string>
                                 <constraint firstAttribute="height" constant="1" id="aOM-az-7OH"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Part 4: Trauma Symptoms" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbv-57-Ka9">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Part 2: Trauma Symptoms" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbv-57-Ka9">
                             <rect key="frame" x="205" y="20" width="189" height="19.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -205,7 +288,7 @@ Ask the patient how much the symptoms bothered them in the past week</string>
                     </constraints>
                 </view>
             </objects>
-            <point key="canvasLocation" x="746" y="470"/>
+            <point key="canvasLocation" x="294" y="1146"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -219,16 +302,18 @@ Ask the patient how much the symptoms bothered them in the past week</string>
                     </tabBar>
                     <connections>
                         <segue destination="vcA-DP-d1f" kind="relationship" relationship="viewControllers" id="fdV-xb-YCQ"/>
-                        <segue destination="Ugl-dQ-c9T" kind="relationship" relationship="viewControllers" id="bhE-sJ-mDt"/>
+                        <segue destination="Ugl-dQ-c9T" kind="relationship" relationship="viewControllers" id="SPP-dr-llz"/>
+                        <segue destination="VKd-rX-gft" kind="relationship" relationship="viewControllers" id="kmH-Lo-KbC"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4" y="-90"/>
+            <point key="canvasLocation" x="-36" y="-110"/>
         </scene>
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
+        <image name="third" width="512" height="512"/>
     </resources>
 </document>
