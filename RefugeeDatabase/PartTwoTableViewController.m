@@ -1,49 +1,47 @@
 //
-//  PartOneTableViewController.m
+//  PartTwoTableViewController.m
 //  RefugeeDatabase
 //
-//  Created by Maya Saxena on 11/30/15.
-//  Copyright (c) 2015 Workinonit. All rights reserved.
+//  Created by Maya Saxena on 2/22/16.
+//  Copyright (c) 2016 Workinonit. All rights reserved.
 //
 
-#import "PartOneTableViewController.h"
-#import "QuestionTableViewCell.h"
+#import "PartTwoTableViewController.h"
+#import "PartTwoTableViewCell.h"
 
-static NSString * const QuestionTableViewCellIdentifier = @"QuestionTableViewCell";
+static NSString * const kPartTwoCellIdentifier = @"PartTwoTableViewCell";
 
-@interface PartOneTableViewController ()
+@interface PartTwoTableViewController ()
 
-@property (weak, nonatomic) IBOutlet UIView *tableHeaderView;
+@property (strong, nonatomic) IBOutlet UIView *tableHeaderView;
 
 @end
 
-@implementation PartOneTableViewController
+@implementation PartTwoTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self readQuestions];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.tableView reloadData];
-}
-
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.questions.count;
+    // Return the number of rows in the section.
+    return 2;
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    QuestionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:QuestionTableViewCellIdentifier forIndexPath:indexPath];
+    PartTwoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kPartTwoCellIdentifier forIndexPath:indexPath];
     
-    NSString *index = [NSString stringWithFormat:@"%ld. %@", (long)indexPath.row + 1, self.questions[indexPath.row]];
-    cell.questionLabel.text =  index;
+    NSString *questionText = self.questions[indexPath.row];
+    cell.questionLabel.text = questionText;
     
     return cell;
 }
@@ -56,8 +54,14 @@ static NSString * const QuestionTableViewCellIdentifier = @"QuestionTableViewCel
     return 120;
 }
 
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 300;
+}
+
 - (void)readQuestions {
-    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"part1" ofType:@"txt"];
+    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"part2" ofType:@"txt"];
     NSError *error;
     NSStringEncoding *encoding;
     NSString *fileContents = [NSString stringWithContentsOfFile:filepath usedEncoding:encoding error:&error];

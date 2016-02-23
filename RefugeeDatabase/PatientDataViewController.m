@@ -6,38 +6,27 @@
 //  Copyright (c) 2015 Workinonit. All rights reserved.
 //
 
-#import "PartTwoTestViewController.h"
+#import "PatientDataViewController.h"
 #import <AFNetworking/AFNetworking.h>
 
-@interface PartTwoTestViewController ()
+@interface PatientDataViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *firstNameField;
-
 @property (weak, nonatomic) IBOutlet UITextField *lastNameField;
+@property (weak, nonatomic) IBOutlet UIButton *sendDataButton;
 
 @end
 
-@implementation PartTwoTestViewController
+@implementation PatientDataViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.sendDataButton.titleLabel.text = @"Send data";
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)sendButtonTapped:(UIButton *)sender {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -50,10 +39,13 @@
     NSString *lastName = [self.lastNameField.text isEqualToString:@""] ? @"None" : self.lastNameField.text;
     NSDictionary *params = @{@"user" : @"/api/v1/user/1/",
                              @"first_name" : firstName,
-                             @"last_name" : lastName};
+                             @"last_name" : lastName,
+                             @"id" : @9};
     
     [manager POST:@"https://pure-harbor-9891.herokuapp.com/api/v1/record/" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
+        self.sendDataButton.titleLabel.text = @"Data sent!";
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         

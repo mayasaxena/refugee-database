@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PartTwoTestViewController : UIViewController
+@interface PatientDataViewController : UIViewController
 
 @end

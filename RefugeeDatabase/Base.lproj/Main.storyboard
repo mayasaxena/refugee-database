@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -36,7 +37,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBU-ft-fy3">
                                             <rect key="frame" x="20" y="15" width="58" height="29.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -73,7 +74,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ask the patient if they have experienced any of the following events" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JrY-MN-NGY">
                             <rect key="frame" x="82.5" y="82.5" width="434.5" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iUB-nB-ME8">
@@ -86,7 +87,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Part 1: Trauma Events" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZf-cI-wuI">
                             <rect key="frame" x="221" y="20" width="159.5" height="19.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -107,10 +108,99 @@
             </objects>
             <point key="canvasLocation" x="726" y="-340"/>
         </scene>
+        <!--Part 2-->
+        <scene sceneID="Ngx-J1-FgP">
+            <objects>
+                <tableViewController title="Part 2" id="F8V-0z-d6X" customClass="PartTwoTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LLe-uT-Rwu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PartTwoTableViewCell" rowHeight="250" id="RuS-GR-TG9" customClass="PartTwoTableViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RuS-GR-TG9" id="uFA-qW-H17">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Znc-fU-FuF">
+                                            <rect key="frame" x="30" y="10" width="540" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mSG-Ek-9gK">
+                                            <rect key="frame" x="38" y="47" width="524" height="182.5"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="cy7-C0-06m"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.94117647059999998" green="0.93725490199999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="mSG-Ek-9gK" firstAttribute="top" secondItem="Znc-fU-FuF" secondAttribute="bottom" constant="20" id="485-7y-mgC"/>
+                                        <constraint firstItem="Znc-fU-FuF" firstAttribute="top" secondItem="uFA-qW-H17" secondAttribute="top" constant="10" id="GW3-LI-uz0"/>
+                                        <constraint firstItem="Znc-fU-FuF" firstAttribute="leading" secondItem="uFA-qW-H17" secondAttribute="leading" constant="30" id="XDV-h1-43r"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="mSG-Ek-9gK" secondAttribute="trailing" constant="30" id="XDr-if-8hw"/>
+                                        <constraint firstAttribute="bottom" secondItem="mSG-Ek-9gK" secondAttribute="bottom" constant="20" id="gMz-FZ-7kn"/>
+                                        <constraint firstItem="mSG-Ek-9gK" firstAttribute="leading" secondItem="uFA-qW-H17" secondAttribute="leadingMargin" constant="30" id="iGG-be-axa"/>
+                                        <constraint firstAttribute="trailing" secondItem="Znc-fU-FuF" secondAttribute="trailing" constant="30" id="ihj-iA-deI"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="questionLabel" destination="Znc-fU-FuF" id="iGn-Zm-Bnl"/>
+                                    <outlet property="questionTextView" destination="mSG-Ek-9gK" id="dao-F6-Bc7"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="F8V-0z-d6X" id="R1y-p9-KTf"/>
+                            <outlet property="delegate" destination="F8V-0z-d6X" id="9go-RR-HnD"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Part 2" id="P0D-im-Zr3"/>
+                    <connections>
+                        <outlet property="tableHeaderView" destination="uoc-vq-dRi" id="Tl6-sN-Pws"/>
+                    </connections>
+                </tableViewController>
+                <view contentMode="scaleToFill" id="uoc-vq-dRi">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vNL-s3-fWq">
+                            <rect key="frame" x="0.0" y="149" width="600" height="1"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="qya-yv-e3i"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Part 2: Personal Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g30-Fk-Qb4">
+                            <rect key="frame" x="205" y="20" width="189" height="19.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.94117647059999998" green="0.93725490199999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="g30-Fk-Qb4" firstAttribute="top" secondItem="uoc-vq-dRi" secondAttribute="top" constant="20" id="9bG-W3-5Vd"/>
+                        <constraint firstItem="vNL-s3-fWq" firstAttribute="leading" secondItem="uoc-vq-dRi" secondAttribute="leading" id="DRh-fk-Aic"/>
+                        <constraint firstAttribute="centerX" secondItem="g30-Fk-Qb4" secondAttribute="centerX" id="TXH-KP-T5l"/>
+                        <constraint firstAttribute="trailing" secondItem="vNL-s3-fWq" secondAttribute="trailing" id="o4m-p0-d3d"/>
+                        <constraint firstAttribute="centerX" secondItem="vNL-s3-fWq" secondAttribute="centerX" id="p67-vl-aLB"/>
+                        <constraint firstAttribute="bottom" secondItem="vNL-s3-fWq" secondAttribute="bottom" id="q7G-3m-Bln"/>
+                    </constraints>
+                </view>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Uc-Vo-f8y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1040" y="735"/>
+        </scene>
         <!--Patient Data-->
         <scene sceneID="qco-kZ-Zv1">
             <objects>
-                <viewController title="Patient Data" id="VKd-rX-gft" customClass="PartTwoTestViewController" sceneMemberID="viewController">
+                <viewController title="Patient Data" id="VKd-rX-gft" customClass="PatientDataViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oqp-IK-DUT"/>
                         <viewControllerLayoutGuide type="bottom" id="YHr-fL-jdv"/>
@@ -131,13 +221,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVl-7w-f09">
                                 <rect key="frame" x="109.5" y="140" width="81" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCc-WL-UVZ">
                                 <rect key="frame" x="110" y="200" width="80" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vP7-Ch-mSc" userLabel="First name field">
@@ -159,7 +249,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patient Information" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ff0-fw-SJf">
                                 <rect key="frame" x="227" y="70" width="146" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -183,11 +273,12 @@
                     <connections>
                         <outlet property="firstNameField" destination="vP7-Ch-mSc" id="gzt-0y-LOQ"/>
                         <outlet property="lastNameField" destination="Yr4-h5-1lI" id="GFV-se-aAI"/>
+                        <outlet property="sendDataButton" destination="FzL-85-zEH" id="Jb5-hb-9yo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Dq-db-fsn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="706" y="430"/>
+            <point key="canvasLocation" x="-842" y="442"/>
         </scene>
         <!--Part 4-->
         <scene sceneID="UfK-kc-98x">
@@ -206,7 +297,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guE-gx-kTU">
                                             <rect key="frame" x="282.5" y="10" width="35.5" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xOK-JQ-ZTb">
@@ -241,7 +332,7 @@
                             <outlet property="delegate" destination="Ugl-dQ-c9T" id="wQt-XC-Ff9"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Part 2" image="second" id="5ob-hl-LTj"/>
+                    <tabBarItem key="tabBarItem" title="Part 4" image="second" id="5ob-hl-LTj"/>
                     <connections>
                         <outlet property="tableHeaderView" destination="qr6-uJ-SEr" id="nB1-qq-WY6"/>
                     </connections>
@@ -256,7 +347,7 @@
                             <string key="text">The following are symptoms that people sometimes have after experiencing hurtful or terrifying events in their lives. 
 Ask the patient how much the symptoms bothered them in the past week</string>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JhH-5e-MI9">
@@ -269,7 +360,7 @@ Ask the patient how much the symptoms bothered them in the past week</string>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Part 2: Trauma Symptoms" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbv-57-Ka9">
                             <rect key="frame" x="205" y="20" width="189" height="19.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -288,7 +379,26 @@ Ask the patient how much the symptoms bothered them in the past week</string>
                     </constraints>
                 </view>
             </objects>
-            <point key="canvasLocation" x="294" y="1146"/>
+            <point key="canvasLocation" x="-566" y="1216"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="AhG-YG-wIY">
+            <objects>
+                <viewController id="w19-jU-ifj" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Uan-0S-1aB"/>
+                        <viewControllerLayoutGuide type="bottom" id="nJD-w1-oDB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FdP-xI-uYH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Ueh-Ak-kmP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="myd-nb-WHC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="281" y="1565"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -302,8 +412,10 @@ Ask the patient how much the symptoms bothered them in the past week</string>
                     </tabBar>
                     <connections>
                         <segue destination="vcA-DP-d1f" kind="relationship" relationship="viewControllers" id="fdV-xb-YCQ"/>
-                        <segue destination="Ugl-dQ-c9T" kind="relationship" relationship="viewControllers" id="SPP-dr-llz"/>
-                        <segue destination="VKd-rX-gft" kind="relationship" relationship="viewControllers" id="kmH-Lo-KbC"/>
+                        <segue destination="F8V-0z-d6X" kind="relationship" relationship="viewControllers" id="yf4-mr-NJV"/>
+                        <segue destination="w19-jU-ifj" kind="relationship" relationship="viewControllers" id="uHu-zg-FfC"/>
+                        <segue destination="Ugl-dQ-c9T" kind="relationship" relationship="viewControllers" id="lO7-AW-GTY"/>
+                        <segue destination="VKd-rX-gft" kind="relationship" relationship="viewControllers" id="sl4-pA-seb"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -314,6 +426,6 @@ Ask the patient how much the symptoms bothered them in the past week</string>
     <resources>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
-        <image name="third" width="512" height="512"/>
+        <image name="third" width="64" height="64"/>
     </resources>
 </document>
