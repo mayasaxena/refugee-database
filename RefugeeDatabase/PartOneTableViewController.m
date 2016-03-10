@@ -7,13 +7,15 @@
 //
 
 #import "PartOneTableViewController.h"
-#import "QuestionTableViewCell.h"
+#import "PartOneQuestionTableViewCell.h"
 
 static NSString * const QuestionTableViewCellIdentifier = @"QuestionTableViewCell";
 
-@interface PartOneTableViewController ()
+@interface PartOneTableViewController () <QuestionTableViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *tableHeaderView;
+
+@property (strong, nonatomic) NSMutableDictionary *answers;
 
 @end
 
@@ -22,6 +24,7 @@ static NSString * const QuestionTableViewCellIdentifier = @"QuestionTableViewCel
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self readQuestions];
+    self.answers = [NSMutableDictionary new];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -40,10 +43,21 @@ static NSString * const QuestionTableViewCellIdentifier = @"QuestionTableViewCel
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    QuestionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:QuestionTableViewCellIdentifier forIndexPath:indexPath];
+    PartOneQuestionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:QuestionTableViewCellIdentifier forIndexPath:indexPath];
     
-    NSString *index = [NSString stringWithFormat:@"%ld. %@", (long)indexPath.row + 1, self.questions[indexPath.row]];
-    cell.questionLabel.text =  index;
+    cell.delegate = self;
+    
+    NSString *questionString = [NSString stringWithFormat:@"%ld. %@", (long)indexPath.row + 1, self.questions[indexPath.row]];
+    cell.questionLabel.text = questionString;
+    
+    NSNumber *answer = self.answers[@(indexPath.row)];
+    if (answer) {
+        if ([answer boolValue]) {
+            [cell selectYes];
+        } else {
+            [cell selectNo];
+        }
+    }
     
     return cell;
 }
@@ -65,6 +79,11 @@ static NSString * const QuestionTableViewCellIdentifier = @"QuestionTableViewCel
         NSLog(@"Error reading file: %@", error.localizedDescription);
     
     self.questions = [fileContents componentsSeparatedByString:@"\n"];
+}
+
+- (void)tableViewCell:(PartOneQuestionTableViewCell *)cell didChooseAnswer:(BOOL)answer {
+    NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
+    self.answers[@(cellIndexPath.row)] = @(answer);
 }
 
 @end

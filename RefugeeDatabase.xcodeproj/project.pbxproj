@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A52CD1A91C11E9B200257049 /* part1.txt in Resources */ = {isa = PBXBuildFile; fileRef = A52CD1A81C11E9B200257049 /* part1.txt */; };
-		A52CD1AC1C11ED8900257049 /* QuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A52CD1AB1C11ED8900257049 /* QuestionTableViewCell.m */; };
+		A52CD1AC1C11ED8900257049 /* PartOneQuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A52CD1AB1C11ED8900257049 /* PartOneQuestionTableViewCell.m */; };
 		A55D9D1B1C152C1600914678 /* PatientDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A55D9D1A1C152C1600914678 /* PatientDataViewController.m */; };
 		A56236421C11FE8B007EB12B /* PartFourTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56236411C11FE8B007EB12B /* PartFourTableViewController.m */; };
 		A56236441C120039007EB12B /* part4.txt in Resources */ = {isa = PBXBuildFile; fileRef = A56236431C120039007EB12B /* part4.txt */; };
@@ -17,6 +17,9 @@
 		A56B0F101C7BFB1100382DAA /* part2.txt in Resources */ = {isa = PBXBuildFile; fileRef = A56B0F0F1C7BFB1100382DAA /* part2.txt */; };
 		A56B0F131C7BFB9F00382DAA /* PartTwoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A56B0F121C7BFB9F00382DAA /* PartTwoTableViewCell.m */; };
 		A59B4E011C1525FC00F38951 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = A59B4E001C1525FC00F38951 /* Podfile */; };
+		A5A2053E1C910E0600060B37 /* PartThreeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A2053D1C910E0600060B37 /* PartThreeTableViewController.m */; };
+		A5A205401C91122C00060B37 /* part3.txt in Resources */ = {isa = PBXBuildFile; fileRef = A5A2053F1C91122C00060B37 /* part3.txt */; };
+		A5A205431C91129500060B37 /* PartThreeQuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A205421C91129500060B37 /* PartThreeQuestionTableViewCell.m */; };
 		A5BC2BA71C0C93D900940AB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BC2BA61C0C93D900940AB1 /* main.m */; };
 		A5BC2BAA1C0C93D900940AB1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BC2BA91C0C93D900940AB1 /* AppDelegate.m */; };
 		A5BC2BB31C0C93D900940AB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5BC2BB11C0C93D900940AB1 /* Main.storyboard */; };
@@ -41,8 +44,8 @@
 		354AEE2C58C76BD64930A368 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8D0DAEB638A1D4424882DBC9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A52CD1A81C11E9B200257049 /* part1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = part1.txt; sourceTree = "<group>"; };
-		A52CD1AA1C11ED8900257049 /* QuestionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionTableViewCell.h; sourceTree = "<group>"; };
-		A52CD1AB1C11ED8900257049 /* QuestionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionTableViewCell.m; sourceTree = "<group>"; };
+		A52CD1AA1C11ED8900257049 /* PartOneQuestionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartOneQuestionTableViewCell.h; sourceTree = "<group>"; };
+		A52CD1AB1C11ED8900257049 /* PartOneQuestionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartOneQuestionTableViewCell.m; sourceTree = "<group>"; };
 		A55D9D191C152C1600914678 /* PatientDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientDataViewController.h; sourceTree = "<group>"; };
 		A55D9D1A1C152C1600914678 /* PatientDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientDataViewController.m; sourceTree = "<group>"; };
 		A56236401C11FE8B007EB12B /* PartFourTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartFourTableViewController.h; sourceTree = "<group>"; };
@@ -56,6 +59,11 @@
 		A56B0F111C7BFB9F00382DAA /* PartTwoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartTwoTableViewCell.h; sourceTree = "<group>"; };
 		A56B0F121C7BFB9F00382DAA /* PartTwoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartTwoTableViewCell.m; sourceTree = "<group>"; };
 		A59B4E001C1525FC00F38951 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		A5A2053C1C910E0600060B37 /* PartThreeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartThreeTableViewController.h; sourceTree = "<group>"; };
+		A5A2053D1C910E0600060B37 /* PartThreeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartThreeTableViewController.m; sourceTree = "<group>"; };
+		A5A2053F1C91122C00060B37 /* part3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = part3.txt; sourceTree = "<group>"; };
+		A5A205411C91129500060B37 /* PartThreeQuestionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartThreeQuestionTableViewCell.h; sourceTree = "<group>"; };
+		A5A205421C91129500060B37 /* PartThreeQuestionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartThreeQuestionTableViewCell.m; sourceTree = "<group>"; };
 		A5BC2BA11C0C93D900940AB1 /* RefugeeDatabase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RefugeeDatabase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5BC2BA51C0C93D900940AB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5BC2BA61C0C93D900940AB1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -102,6 +110,7 @@
 		A52CD1A71C11E98A00257049 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				A5A2053F1C91122C00060B37 /* part3.txt */,
 				A52CD1A81C11E9B200257049 /* part1.txt */,
 				A56236431C120039007EB12B /* part4.txt */,
 				A56B0F0F1C7BFB1100382DAA /* part2.txt */,
@@ -142,16 +151,20 @@
 				A5BC2BA41C0C93D900940AB1 /* Supporting Files */,
 				A5BC2BD01C0C950B00940AB1 /* PartOneTableViewController.h */,
 				A5BC2BD11C0C950B00940AB1 /* PartOneTableViewController.m */,
+				A52CD1AA1C11ED8900257049 /* PartOneQuestionTableViewCell.h */,
+				A52CD1AB1C11ED8900257049 /* PartOneQuestionTableViewCell.m */,
 				A56B0F111C7BFB9F00382DAA /* PartTwoTableViewCell.h */,
 				A56B0F121C7BFB9F00382DAA /* PartTwoTableViewCell.m */,
 				A56B0F0C1C7BFA9100382DAA /* PartTwoTableViewController.h */,
 				A56B0F0D1C7BFA9100382DAA /* PartTwoTableViewController.m */,
-				A52CD1AA1C11ED8900257049 /* QuestionTableViewCell.h */,
-				A52CD1AB1C11ED8900257049 /* QuestionTableViewCell.m */,
-				A56236451C120098007EB12B /* PartFourQuestionTableViewCell.h */,
-				A56236461C120098007EB12B /* PartFourQuestionTableViewCell.m */,
+				A5A2053C1C910E0600060B37 /* PartThreeTableViewController.h */,
+				A5A2053D1C910E0600060B37 /* PartThreeTableViewController.m */,
+				A5A205411C91129500060B37 /* PartThreeQuestionTableViewCell.h */,
+				A5A205421C91129500060B37 /* PartThreeQuestionTableViewCell.m */,
 				A56236401C11FE8B007EB12B /* PartFourTableViewController.h */,
 				A56236411C11FE8B007EB12B /* PartFourTableViewController.m */,
+				A56236451C120098007EB12B /* PartFourQuestionTableViewCell.h */,
+				A56236461C120098007EB12B /* PartFourQuestionTableViewCell.m */,
 				A55D9D191C152C1600914678 /* PatientDataViewController.h */,
 				A55D9D1A1C152C1600914678 /* PatientDataViewController.m */,
 			);
@@ -277,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A59B4E011C1525FC00F38951 /* Podfile in Resources */,
+				A5A205401C91122C00060B37 /* part3.txt in Resources */,
 				A5BC2BB31C0C93D900940AB1 /* Main.storyboard in Resources */,
 				A5BC2BB81C0C93D900940AB1 /* LaunchScreen.xib in Resources */,
 				A56236441C120039007EB12B /* part4.txt in Resources */,
@@ -350,8 +364,10 @@
 			files = (
 				A56B0F131C7BFB9F00382DAA /* PartTwoTableViewCell.m in Sources */,
 				A56236471C120098007EB12B /* PartFourQuestionTableViewCell.m in Sources */,
-				A52CD1AC1C11ED8900257049 /* QuestionTableViewCell.m in Sources */,
+				A52CD1AC1C11ED8900257049 /* PartOneQuestionTableViewCell.m in Sources */,
+				A5A2053E1C910E0600060B37 /* PartThreeTableViewController.m in Sources */,
 				A5BC2BAA1C0C93D900940AB1 /* AppDelegate.m in Sources */,
+				A5A205431C91129500060B37 /* PartThreeQuestionTableViewCell.m in Sources */,
 				A55D9D1B1C152C1600914678 /* PatientDataViewController.m in Sources */,
 				A5BC2BA71C0C93D900940AB1 /* main.m in Sources */,
 				A5BC2BD21C0C950B00940AB1 /* PartOneTableViewController.m in Sources */,
