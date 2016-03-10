@@ -12,9 +12,10 @@
 
 static NSString * const QuestionTableViewCellIdentifier = @"PartThreeQuestionTableViewCell";
 
-@interface PartThreeTableViewController ()
+@interface PartThreeTableViewController () <PartThreeQuestionTableViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *tableHeaderView;
+@property (strong, nonatomic) NSMutableDictionary *answers;
 
 @end
 
@@ -23,6 +24,7 @@ static NSString * const QuestionTableViewCellIdentifier = @"PartThreeQuestionTab
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self readQuestions];
+    self.answers = [NSMutableDictionary new];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -43,8 +45,19 @@ static NSString * const QuestionTableViewCellIdentifier = @"PartThreeQuestionTab
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PartThreeQuestionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:QuestionTableViewCellIdentifier forIndexPath:indexPath];
     
-    NSString *index = [NSString stringWithFormat:@"%ld. %@", (long)indexPath.row + 1, self.questions[indexPath.row]];
-    cell.questionLabel.text =  index;
+    NSString *questionString = [NSString stringWithFormat:@"%ld. %@", (long)indexPath.row + 1, self.questions[indexPath.row]];
+    cell.questionLabel.text =  questionString;
+    
+    cell.delegate = self;
+    
+    NSNumber *answer = self.answers[@(indexPath.row)];
+    if (answer) {
+        if ([answer boolValue]) {
+            [cell selectYes];
+        } else {
+            [cell selectNo];
+        }
+    }
     
     return cell;
 }
@@ -66,6 +79,11 @@ static NSString * const QuestionTableViewCellIdentifier = @"PartThreeQuestionTab
         NSLog(@"Error reading file: %@", error.localizedDescription);
     
     self.questions = [fileContents componentsSeparatedByString:@"\n"];
+}
+
+- (void)tableViewCell:(PartThreeQuestionTableViewCell *)cell didChooseAnswer:(BOOL)answer {
+    NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
+    self.answers[@(cellIndexPath.row)] = @(answer);
 }
 
 @end

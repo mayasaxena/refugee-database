@@ -9,9 +9,9 @@
 #import "PartOneTableViewController.h"
 #import "PartOneQuestionTableViewCell.h"
 
-static NSString * const QuestionTableViewCellIdentifier = @"QuestionTableViewCell";
+static NSString * const PartOneQuestionTableViewCellIdentifier = @"PartOneQuestionTableViewCell";
 
-@interface PartOneTableViewController () <QuestionTableViewCellDelegate>
+@interface PartOneTableViewController () <PartOneQuestionTableViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *tableHeaderView;
 
@@ -43,7 +43,7 @@ static NSString * const QuestionTableViewCellIdentifier = @"QuestionTableViewCel
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    PartOneQuestionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:QuestionTableViewCellIdentifier forIndexPath:indexPath];
+    PartOneQuestionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PartOneQuestionTableViewCellIdentifier forIndexPath:indexPath];
     
     cell.delegate = self;
     

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @class PartOneQuestionTableViewCell;
 
-@protocol QuestionTableViewCellDelegate
+@protocol PartOneQuestionTableViewCellDelegate
 
 - (void)tableViewCell:(PartOneQuestionTableViewCell *)cell didChooseAnswer:(BOOL) answer;
 
@@ -17,7 +17,7 @@
 
 @interface PartOneQuestionTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) id<QuestionTableViewCellDelegate> delegate;
+@property (weak, nonatomic) id<PartOneQuestionTableViewCellDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *yesNoControl;

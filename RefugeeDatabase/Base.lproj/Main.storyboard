@@ -15,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuestionTableViewCell" rowHeight="60" id="v87-sH-iJu" customClass="PartOneQuestionTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PartOneQuestionTableViewCell" rowHeight="60" id="v87-sH-iJu" customClass="PartOneQuestionTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v87-sH-iJu" id="swL-h5-GBV">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -108,11 +108,11 @@
             </objects>
             <point key="canvasLocation" x="-1054" y="1202"/>
         </scene>
-        <!--Item-->
+        <!--Part 3-->
         <scene sceneID="xQ5-tw-bEi">
             <objects>
-                <tableViewController id="YbU-ET-7nB" customClass="PartThreeTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wjH-oh-E90">
+                <tableViewController title="Part 3" id="YbU-ET-7nB" customClass="PartThreeTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wjH-oh-E90">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -140,6 +140,9 @@
                                                 <segment title="No"/>
                                             </segments>
                                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="optionSelectedChanged:" destination="Nb1-FH-D9G" eventType="valueChanged" id="RcW-Ie-Zsw"/>
+                                            </connections>
                                         </segmentedControl>
                                     </subviews>
                                     <constraints>
@@ -153,6 +156,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="questionLabel" destination="yc5-cn-ZfX" id="fFt-gQ-zmW"/>
+                                    <outlet property="yesNoControl" destination="67U-Nm-hc4" id="xeR-VR-dMN"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -161,7 +165,7 @@
                             <outlet property="delegate" destination="YbU-ET-7nB" id="9Gc-Sy-8FQ"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="lYh-oa-L91"/>
+                    <tabBarItem key="tabBarItem" title="Part 3" id="lYh-oa-L91"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gjk-Ka-yEv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
