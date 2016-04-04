@@ -10,6 +10,7 @@
 #import "PartOneQuestionTableViewCell.h"
 
 static NSString * const PartOneQuestionTableViewCellIdentifier = @"PartOneQuestionTableViewCell";
+static const float PartOneQuestionTableViewCellHeight = 100;
 
 @interface PartOneTableViewController () <PartOneQuestionTableViewCellDelegate>
 
@@ -42,6 +43,14 @@ static NSString * const PartOneQuestionTableViewCellIdentifier = @"PartOneQuesti
     return self.questions.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewAutomaticDimension;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return PartOneQuestionTableViewCellHeight;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PartOneQuestionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PartOneQuestionTableViewCellIdentifier forIndexPath:indexPath];
     
@@ -58,7 +67,7 @@ static NSString * const PartOneQuestionTableViewCellIdentifier = @"PartOneQuesti
             [cell selectNo];
         }
     }
-    
+    [cell layoutIfNeeded];
     return cell;
 }
 
