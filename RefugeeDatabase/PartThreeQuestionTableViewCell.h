@@ -11,7 +11,9 @@
 
 @protocol PartThreeQuestionTableViewCellDelegate
 
-- (void)tableViewCell:(PartThreeQuestionTableViewCell *)cell didChooseAnswer:(BOOL) answer;
+- (void)tableViewCell:(PartThreeQuestionTableViewCell *)cell didChooseFirstAnswer:(BOOL) answer;
+- (void)tableViewCell:(PartThreeQuestionTableViewCell *)cell didChooseSecondAnswer:(BOOL) answer;
+- (void)tableViewCell:(PartThreeQuestionTableViewCell *)cell didChooseDuration:(NSTimeInterval)duration;
 
 @end
 
@@ -22,7 +24,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *yesNoControl;
 
-- (void)selectYes;
-- (void)selectNo;
+- (void)setupCellWithAnswers:(NSMutableDictionary *)answerDict;
 
 @end
