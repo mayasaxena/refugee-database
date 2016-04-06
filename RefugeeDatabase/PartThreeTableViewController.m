@@ -14,6 +14,11 @@ static NSString * const PartThreeGeneralQuestionTableViewCellIdentifier = @"Part
 static NSString * const PartThreeQuestionFiveTableViewCellIdentifier = @"PartThreeQuestionFiveTableViewCell";
 
 static const float PartThreeQuestionTableViewCellHeight = 60;
+static const float PartThreeQuestionTableViewCellExpandedOnceHeight = 120;
+static const float PartThreeQuestionTableViewCellExpandedTwiceHeight = 180;
+static const float PartThreeQuestionFiveTableViewCellHeight = 160;
+
+
 
 @interface PartThreeTableViewController () <PartThreeQuestionTableViewCellDelegate>
 
@@ -50,18 +55,30 @@ static const float PartThreeQuestionTableViewCellHeight = 60;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return PartThreeQuestionTableViewCellHeight;
+
+    NSMutableDictionary *answerDict = self.answers[@(indexPath.row)];
+    if ([answerDict[@"firstAnswer"] boolValue]) {
+        if (indexPath.row == 4) {
+            return PartThreeQuestionFiveTableViewCellHeight;
+        } else {
+            return PartThreeQuestionTableViewCellExpandedOnceHeight;
+        }
+    } else if ([answerDict[@"firstAnswer"] boolValue] && [answerDict[@"secondAnswer"] boolValue]) {
+        return PartThreeQuestionTableViewCellExpandedTwiceHeight;
+    } else {
+        return PartThreeQuestionTableViewCellHeight;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PartThreeQuestionTableViewCell *cell;
-//    if (indexPath.row < 4) {
+    if (indexPath.row < 4) {
         cell = [tableView dequeueReusableCellWithIdentifier:PartThreeGeneralQuestionTableViewCellIdentifier forIndexPath:indexPath];
         cell.isQuestionFive = NO;
-//    } else {
-//        cell = [tableView dequeueReusableCellWithIdentifier:PartThreeQuestionFiveTableViewCellIdentifier forIndexPath:indexPath];
-//        cell.isQuestionFive = YES;
-//    }
+    } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:PartThreeQuestionFiveTableViewCellIdentifier forIndexPath:indexPath];
+        cell.isQuestionFive = YES;
+    }
     
     NSString *questionString = [NSString stringWithFormat:@"%ld. %@", (long)indexPath.row + 1, self.questions[indexPath.row]];
     cell.questionLabel.text =  questionString;
@@ -117,7 +134,7 @@ static const float PartThreeQuestionTableViewCellHeight = 60;
         [cell.contentView layoutIfNeeded];
     }];
     [self.tableView endUpdates];
-//    [self.tableView scrollToRowAtIndexPath:cellIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+    [self.tableView scrollToRowAtIndexPath:cellIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 
 }
 
@@ -138,7 +155,7 @@ static const float PartThreeQuestionTableViewCellHeight = 60;
         [cell.contentView layoutIfNeeded];
     }];
     [self.tableView endUpdates];
-//    [self.tableView scrollToRowAtIndexPath:cellIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+    [self.tableView scrollToRowAtIndexPath:cellIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
 
 - (void)tableViewCell:(PartThreeQuestionTableViewCell *)cell didChooseDuration:(NSTimeInterval)duration {

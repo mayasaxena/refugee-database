@@ -118,11 +118,11 @@ static const int PartThreeQuestionTableViewCellTextFieldCharacterLimit = 2;
 }
 
 - (void)setExpandedHeight {
-//    if (self.isQuestionFive) {
-//        self.expandedHeight = 100;
-//    } else {
+    if (self.isQuestionFive) {
+        self.expandedHeight = 100;
+    } else {
         self.expandedHeight = 60;
-//    }
+    }
 }
 
 #pragma mark - UITextFieldDelegate
