@@ -24,6 +24,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *yesNoControl;
 
+@property (nonatomic, assign) BOOL isQuestionFive;
+
+- (void)setExpandedHeight;
 - (void)setupCellWithAnswers:(NSMutableDictionary *)answerDict;
 
 @end

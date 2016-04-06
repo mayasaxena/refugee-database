@@ -10,6 +10,7 @@
 
 static const int PartThreeQuestionTableViewCellTextFieldCharacterLimit = 2;
 
+
 @interface PartThreeQuestionTableViewCell () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *subQuestionOneView;
@@ -19,6 +20,7 @@ static const int PartThreeQuestionTableViewCellTextFieldCharacterLimit = 2;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *subQuestionViewTwoHeightConstraint;
 @property (weak, nonatomic) IBOutlet UITextField *subQuestionTwoHoursTextField;
 @property (weak, nonatomic) IBOutlet UITextField *subQuestionTwoMinutesTextField;
+@property (nonatomic, assign) int expandedHeight;
 
 @end
 
@@ -39,7 +41,7 @@ static const int PartThreeQuestionTableViewCellTextFieldCharacterLimit = 2;
     if (sender.selectedSegmentIndex == 0) {
         answer = YES;
         [self selectYes:sender];
-        newHeight = 60;
+        newHeight = self.expandedHeight;
     } else if (sender.selectedSegmentIndex == 1) {
         answer = NO;
         [self selectNo:sender];
@@ -82,7 +84,11 @@ static const int PartThreeQuestionTableViewCellTextFieldCharacterLimit = 2;
             if (duration) {
                 //TODO
             }
+        } else {
+            [self resetSegmentedControl:self.subQuestionOneControl];
         }
+    } else {
+        [self resetSegmentedControl:self.yesNoControl];
     }
 }
 
@@ -101,10 +107,22 @@ static const int PartThreeQuestionTableViewCellTextFieldCharacterLimit = 2;
 - (void)resetCell {
     self.subQuestionTwoHoursTextField.delegate = self;
     self.subQuestionTwoMinutesTextField.delegate = self;
-    self.yesNoControl.selectedSegmentIndex = UISegmentedControlNoSegment;
-    self.yesNoControl.tintColor = [UIColor darkGrayColor];
-    self.subQuestionOneControl.selectedSegmentIndex = UISegmentedControlNoSegment;
-    self.subQuestionOneControl.tintColor = [UIColor darkGrayColor];
+    [self resetSegmentedControl:self.yesNoControl];
+    [self resetSegmentedControl:self.subQuestionOneControl];
+    [self setExpandedHeight];
+}
+
+- (void)resetSegmentedControl:(UISegmentedControl *)control {
+    control.selectedSegmentIndex = UISegmentedControlNoSegment;
+    control.tintColor = [UIColor darkGrayColor];
+}
+
+- (void)setExpandedHeight {
+//    if (self.isQuestionFive) {
+//        self.expandedHeight = 100;
+//    } else {
+        self.expandedHeight = 60;
+//    }
 }
 
 #pragma mark - UITextFieldDelegate

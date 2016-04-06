@@ -292,16 +292,16 @@
                                             </segments>
                                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
-                                                <action selector="optionSelectedChanged:" destination="FD9-tv-UC8" eventType="valueChanged" id="w2C-9k-fCY"/>
+                                                <action selector="optionSelectedChanged:" destination="FD9-tv-UC8" eventType="valueChanged" id="6Yf-Oy-0DX"/>
                                             </connections>
                                         </segmentedControl>
                                         <view clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="AxM-IZ-354">
-                                            <rect key="frame" x="0.0" y="60" width="600" height="0.0"/>
+                                            <rect key="frame" x="0.0" y="59.5" width="600" height="0.0"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Normal weight:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9M-fm-Kfm">
                                                     <rect key="frame" x="20" y="22" width="91.5" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="16" id="NxZ-nI-yuA"/>
+                                                        <constraint firstAttribute="height" priority="999" constant="16" id="NxZ-nI-yuA"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -333,7 +333,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Were you near death due to starvation?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IsL-ga-aFE">
-                                                    <rect key="frame" x="20" y="-36" width="238" height="16"/>
+                                                    <rect key="frame" x="20" y="64" width="238" height="16"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="16" id="OYO-cT-V8l"/>
                                                     </constraints>
@@ -342,7 +342,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BGl-6A-a1d">
-                                                    <rect key="frame" x="507" y="-43" width="73" height="31"/>
+                                                    <rect key="frame" x="507" y="57" width="73" height="31"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="JFf-io-YT0"/>
                                                         <constraint firstAttribute="width" constant="73" id="djg-oL-T3E"/>
@@ -353,7 +353,7 @@
                                                     </segments>
                                                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <connections>
-                                                        <action selector="optionSelectedChanged:" destination="FD9-tv-UC8" eventType="valueChanged" id="p79-Zq-Thd"/>
+                                                        <action selector="optionSelectedChanged:" destination="FD9-tv-UC8" eventType="valueChanged" id="VSj-Y1-tEr"/>
                                                     </connections>
                                                 </segmentedControl>
                                             </subviews>
@@ -361,14 +361,14 @@
                                             <constraints>
                                                 <constraint firstItem="f6p-mm-IHR" firstAttribute="centerY" secondItem="Y9M-fm-Kfm" secondAttribute="centerY" id="3vz-fm-a0T"/>
                                                 <constraint firstItem="BGl-6A-a1d" firstAttribute="centerY" secondItem="IsL-ga-aFE" secondAttribute="centerY" id="5M2-ok-PXw"/>
-                                                <constraint firstAttribute="bottom" secondItem="IsL-ga-aFE" secondAttribute="bottom" constant="20" id="Ecd-8c-Bs8"/>
+                                                <constraint firstAttribute="bottom" secondItem="IsL-ga-aFE" secondAttribute="bottom" priority="999" constant="20" id="Ecd-8c-Bs8"/>
                                                 <constraint firstItem="GX3-ba-3as" firstAttribute="leading" secondItem="gAR-8b-fQa" secondAttribute="trailing" constant="10" id="Lw1-1q-HOR"/>
                                                 <constraint firstItem="IsL-ga-aFE" firstAttribute="leading" secondItem="AxM-IZ-354" secondAttribute="leading" constant="20" id="P99-A0-gQU"/>
                                                 <constraint firstAttribute="trailing" secondItem="GX3-ba-3as" secondAttribute="trailing" constant="20" id="Rhq-Ka-RuI"/>
                                                 <constraint firstItem="Y9M-fm-Kfm" firstAttribute="top" secondItem="AxM-IZ-354" secondAttribute="top" constant="22" id="TsM-0z-RGt"/>
                                                 <constraint firstItem="GX3-ba-3as" firstAttribute="centerY" secondItem="Y9M-fm-Kfm" secondAttribute="centerY" id="UqM-wQ-3eW"/>
-                                                <constraint firstAttribute="bottom" secondItem="Y9M-fm-Kfm" secondAttribute="bottom" priority="999" constant="22" id="V2Q-fU-a6Y"/>
                                                 <constraint firstItem="f6p-mm-IHR" firstAttribute="leading" secondItem="Y9M-fm-Kfm" secondAttribute="trailing" constant="10.5" id="XWC-Vg-rNh"/>
+                                                <constraint firstItem="IsL-ga-aFE" firstAttribute="top" secondItem="Y9M-fm-Kfm" secondAttribute="bottom" constant="26" id="gzf-M5-ghO"/>
                                                 <constraint firstAttribute="height" id="jcM-8f-w9v"/>
                                                 <constraint firstAttribute="trailing" secondItem="BGl-6A-a1d" secondAttribute="trailing" constant="20" id="nBY-aV-00H"/>
                                                 <constraint firstItem="Y9M-fm-Kfm" firstAttribute="leading" secondItem="AxM-IZ-354" secondAttribute="leading" constant="20" id="vjw-9N-1UJ"/>
@@ -388,19 +388,21 @@
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="Q5l-r3-Gec" secondAttribute="trailing" constant="20" id="9Ue-vc-iKj"/>
                                         <constraint firstItem="AxM-IZ-354" firstAttribute="leading" secondItem="a7K-zQ-960" secondAttribute="leading" id="DVh-Wv-K5f"/>
-                                        <constraint firstItem="AxM-IZ-354" firstAttribute="top" secondItem="IrF-0m-FcP" secondAttribute="bottom" constant="22" id="I13-W8-yVm"/>
+                                        <constraint firstItem="AxM-IZ-354" firstAttribute="top" secondItem="IrF-0m-FcP" secondAttribute="bottom" priority="999" constant="22" id="I13-W8-yVm"/>
                                         <constraint firstAttribute="trailing" secondItem="AxM-IZ-354" secondAttribute="trailing" id="VI0-xn-Nfr"/>
                                         <constraint firstItem="IrF-0m-FcP" firstAttribute="leading" secondItem="a7K-zQ-960" secondAttribute="leading" constant="20" id="g0R-AO-QA8"/>
                                         <constraint firstItem="Q5l-r3-Gec" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IrF-0m-FcP" secondAttribute="trailing" constant="10" id="okT-IT-d2S"/>
                                         <constraint firstItem="Q5l-r3-Gec" firstAttribute="centerY" secondItem="IrF-0m-FcP" secondAttribute="centerY" id="pmX-cf-MVD"/>
                                         <constraint firstItem="IrF-0m-FcP" firstAttribute="top" secondItem="a7K-zQ-960" secondAttribute="top" constant="22" id="rWu-Qi-Iek"/>
+                                        <constraint firstAttribute="bottom" secondItem="AxM-IZ-354" secondAttribute="bottom" id="yjA-Ze-cqh"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="questionLabel" destination="IrF-0m-FcP" id="jAb-fs-1zL"/>
-                                    <outlet property="subQuestionOneView" destination="AxM-IZ-354" id="fke-Fs-3sA"/>
-                                    <outlet property="subQuestionViewOneHeightConstraint" destination="jcM-8f-w9v" id="V1X-ma-zqN"/>
-                                    <outlet property="yesNoControl" destination="Q5l-r3-Gec" id="vWy-o2-pSk"/>
+                                    <outlet property="questionLabel" destination="IrF-0m-FcP" id="2Rg-op-v9b"/>
+                                    <outlet property="subQuestionOneControl" destination="BGl-6A-a1d" id="0Rl-1r-pAg"/>
+                                    <outlet property="subQuestionOneView" destination="AxM-IZ-354" id="L3a-el-gpM"/>
+                                    <outlet property="subQuestionViewOneHeightConstraint" destination="jcM-8f-w9v" id="klR-ST-1Ls"/>
+                                    <outlet property="yesNoControl" destination="Q5l-r3-Gec" id="mD5-tq-OJ2"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

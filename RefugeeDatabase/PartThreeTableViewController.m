@@ -55,16 +55,19 @@ static const float PartThreeQuestionTableViewCellHeight = 60;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PartThreeQuestionTableViewCell *cell;
-    if (indexPath.row < 4) {
+//    if (indexPath.row < 4) {
         cell = [tableView dequeueReusableCellWithIdentifier:PartThreeGeneralQuestionTableViewCellIdentifier forIndexPath:indexPath];
-    } else {
-        cell = [tableView dequeueReusableCellWithIdentifier:PartThreeQuestionFiveTableViewCellIdentifier forIndexPath:indexPath];
-    }
+        cell.isQuestionFive = NO;
+//    } else {
+//        cell = [tableView dequeueReusableCellWithIdentifier:PartThreeQuestionFiveTableViewCellIdentifier forIndexPath:indexPath];
+//        cell.isQuestionFive = YES;
+//    }
     
     NSString *questionString = [NSString stringWithFormat:@"%ld. %@", (long)indexPath.row + 1, self.questions[indexPath.row]];
     cell.questionLabel.text =  questionString;
     
     cell.delegate = self;
+    [cell setExpandedHeight];
     
     NSMutableDictionary *answerDict = self.answers[@(indexPath.row)];
     if (answerDict) {
@@ -102,7 +105,11 @@ static const float PartThreeQuestionTableViewCellHeight = 60;
         answerDict = [NSMutableDictionary new];
     }
     
+    
     answerDict[@"firstAnswer"] = @(answer);
+    if (!answer) {
+        [answerDict removeObjectForKey:@"secondAnswer"];
+    }
     self.answers[@(cellIndexPath.row)] = answerDict;
     
     [self.tableView beginUpdates];
@@ -110,7 +117,7 @@ static const float PartThreeQuestionTableViewCellHeight = 60;
         [cell.contentView layoutIfNeeded];
     }];
     [self.tableView endUpdates];
-    [self.tableView scrollToRowAtIndexPath:cellIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+//    [self.tableView scrollToRowAtIndexPath:cellIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 
 }
 
@@ -118,11 +125,11 @@ static const float PartThreeQuestionTableViewCellHeight = 60;
     NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
     NSMutableDictionary *answerDict = self.answers[@(cellIndexPath.row)];
     
-    if (!answer) {
-        answerDict[@"duration"] = @(0);
-    }
-    
     answerDict[@"secondAnswer"] = @(answer);
+    if (!answer) {
+        [answerDict removeObjectForKey:@"duration"];
+        
+    }
     self.answers[@(cellIndexPath.row)] = answerDict;
     
     
@@ -131,7 +138,7 @@ static const float PartThreeQuestionTableViewCellHeight = 60;
         [cell.contentView layoutIfNeeded];
     }];
     [self.tableView endUpdates];
-    [self.tableView scrollToRowAtIndexPath:cellIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+//    [self.tableView scrollToRowAtIndexPath:cellIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
 
 - (void)tableViewCell:(PartThreeQuestionTableViewCell *)cell didChooseDuration:(NSTimeInterval)duration {
