@@ -8,16 +8,31 @@
 
 #import "PartFourQuestionTableViewCell.h"
 
+@interface PartFourQuestionTableViewCell ()
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *frequencySegmentedControl;
+
+@end
+
 @implementation PartFourQuestionTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    [super awakeFromNib];
+    [self resetCell];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+- (IBAction)frequencyChanged:(UISegmentedControl *)sender {
+    
+}
+
+- (void)setupCellWithAnswer:(int)answer {
+    self.frequencySegmentedControl.selectedSegmentIndex = answer;
+}
+
+- (void)resetCell {
+    self.frequencySegmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment;
+    self.frequencySegmentedControl.tintColor = [UIColor darkGrayColor];
 }
 
 @end

@@ -15,6 +15,7 @@
 @implementation PartOneQuestionTableViewCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     [self resetCell];
 }
 

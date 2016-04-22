@@ -24,5 +24,6 @@
 
 - (void)selectYes;
 - (void)selectNo;
+- (void)resetCell;
 
 @end

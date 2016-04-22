@@ -33,6 +33,17 @@ static const float PartOneQuestionTableViewCellHeight = 100;
     [self.tableView reloadData];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    for (int i = 0; i < self.questions.count; i++) {
+        if (!self.answers[[NSString stringWithFormat:@"%d", i]]) {
+            [self.answers setValue:@(UISegmentedControlNoSegment) forKey:[NSString stringWithFormat:@"%d", i]];
+        }
+    }
+    [defaults setObject:self.answers forKey:@"Part1"];
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -59,12 +70,17 @@ static const float PartOneQuestionTableViewCellHeight = 100;
     NSString *questionString = [NSString stringWithFormat:@"%ld. %@", (long)indexPath.row + 1, self.questions[indexPath.row]];
     cell.questionLabel.text = questionString;
     
-    NSNumber *answer = self.answers[@(indexPath.row)];
+    NSNumber *answer = self.answers[[@(indexPath.row) stringValue]];
     if (answer) {
-        if ([answer boolValue]) {
-            [cell selectYes];
+        if ([answer intValue] == UISegmentedControlNoSegment) {
+            [cell resetCell];
         } else {
-            [cell selectNo];
+            
+            if ([answer boolValue]) {
+                [cell selectYes];
+            } else {
+                [cell selectNo];
+            }
         }
     }
     [cell layoutIfNeeded];
@@ -92,7 +108,7 @@ static const float PartOneQuestionTableViewCellHeight = 100;
 
 - (void)tableViewCell:(PartOneQuestionTableViewCell *)cell didChooseAnswer:(BOOL)answer {
     NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
-    self.answers[@(cellIndexPath.row)] = @(answer);
+    self.answers[[@(cellIndexPath.row) stringValue]] = @(answer);
 }
 
 @end

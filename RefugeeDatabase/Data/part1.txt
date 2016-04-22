@@ -22,11 +22,11 @@ Enforced isolation from others
 Someone was forced to betray you and place you at risk of death or injury
 Prevented from burying someone
 Forced to desecrate or destroy the bodies or graves of deceased persons
-Forced to physically harm family member, or friend
+Forced to physically harm family member or friend
 Forced to physically harm someone who is not family or friend
 Forced to destroy someone else's property or possessions
-Forced to betray family member, or friend placing them at risk of death or injury
-Forced to betray someone who is not family or friend placing them at risk of death or injury
+Forced to betray family member or friend, placing them at risk of death or injury
+Forced to betray someone who is not family or friend, placing them at risk of death or injury
 Murder, or death due to violence, of spouse
 Murder, or death due to violence, of child
 Murder, or death due to violence, of other family member or friend
@@ -38,4 +38,3 @@ Witness beatings to head or body
 Witness torture
 Witness killing/murder
 Witness rape or sexual abuse
-Another situation that was very frightening or in which you felt your life was in danger

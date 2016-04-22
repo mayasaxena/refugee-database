@@ -33,11 +33,22 @@ static const float PartThreeQuestionFiveTableViewCellHeight = 160;
     [super viewDidLoad];
     [self readQuestions];
     self.answers = [NSMutableDictionary new];
+    
+    NSMutableDictionary *emptyAnswer = [NSMutableDictionary dictionaryWithObjectsAndKeys:@(UISegmentedControlNoSegment), @"firstAnswer", @(UISegmentedControlNoSegment), @"secondAnswer", @0, @"duration", nil];
+    for (int i = 0; i < self.questions.count; i++) {
+        [self.answers setValue:[emptyAnswer mutableCopy] forKey:[NSString stringWithFormat:@"%d", i]];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView reloadData];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.answers forKey:@"Part3"];
 }
 
 #pragma mark - UITableViewDataSource
@@ -56,7 +67,7 @@ static const float PartThreeQuestionFiveTableViewCellHeight = 160;
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    NSMutableDictionary *answerDict = self.answers[@(indexPath.row)];
+    NSMutableDictionary *answerDict = self.answers[[@(indexPath.row) stringValue]];
     if ([answerDict[@"firstAnswer"] boolValue]) {
         if (indexPath.row == 4) {
             return PartThreeQuestionFiveTableViewCellHeight;
@@ -86,7 +97,7 @@ static const float PartThreeQuestionFiveTableViewCellHeight = 160;
     cell.delegate = self;
     [cell setExpandedHeight];
     
-    NSMutableDictionary *answerDict = self.answers[@(indexPath.row)];
+    NSMutableDictionary *answerDict = self.answers[[@(indexPath.row) stringValue]];
     if (answerDict) {
         [cell setupCellWithAnswers:answerDict];
     }
@@ -117,17 +128,15 @@ static const float PartThreeQuestionFiveTableViewCellHeight = 160;
 
 - (void)tableViewCell:(PartThreeQuestionTableViewCell *)cell didChooseFirstAnswer:(BOOL)answer {
     NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
-    NSMutableDictionary *answerDict = self.answers[@(cellIndexPath.row)];
+    NSMutableDictionary *answerDict = self.answers[[@(cellIndexPath.row) stringValue]];
     if (!answerDict) {
         answerDict = [NSMutableDictionary new];
     }
-    
-    
-    answerDict[@"firstAnswer"] = @(answer);
+    [answerDict setValue:@(answer) forKey:@"firstAnswer"];
     if (!answer) {
-        [answerDict removeObjectForKey:@"secondAnswer"];
+        [answerDict setValue:@(UISegmentedControlNoSegment) forKey:@"secondAnswer"];
     }
-    self.answers[@(cellIndexPath.row)] = answerDict;
+    self.answers[[@(cellIndexPath.row) stringValue]] = answerDict;
     
     [self.tableView beginUpdates];
     [UIView animateWithDuration:0.3 animations:^{
@@ -135,19 +144,18 @@ static const float PartThreeQuestionFiveTableViewCellHeight = 160;
     }];
     [self.tableView endUpdates];
     [self.tableView scrollToRowAtIndexPath:cellIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
-
 }
 
 - (void)tableViewCell:(PartThreeQuestionTableViewCell *)cell didChooseSecondAnswer:(BOOL)answer {
     NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
-    NSMutableDictionary *answerDict = self.answers[@(cellIndexPath.row)];
+    NSMutableDictionary *answerDict = self.answers[[@(cellIndexPath.row) stringValue]];
     
     answerDict[@"secondAnswer"] = @(answer);
     if (!answer) {
-        [answerDict removeObjectForKey:@"duration"];
+        [answerDict setValue:@0 forKey:@"duration"];
         
     }
-    self.answers[@(cellIndexPath.row)] = answerDict;
+    self.answers[[@(cellIndexPath.row) stringValue]] = answerDict;
     
     
     [self.tableView beginUpdates];
@@ -160,11 +168,10 @@ static const float PartThreeQuestionFiveTableViewCellHeight = 160;
 
 - (void)tableViewCell:(PartThreeQuestionTableViewCell *)cell didChooseDuration:(NSTimeInterval)duration {
     NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
-    NSMutableDictionary *answerDict = self.answers[@(cellIndexPath.row)];
+    NSMutableDictionary *answerDict = self.answers[[@(cellIndexPath.row) stringValue]];
     
     answerDict[@"duration"] = @(55);
-    self.answers[@(cellIndexPath.row)] = answerDict;
-    NSLog(@"%@", self.answers);
+    self.answers[[@(cellIndexPath.row) stringValue]] = answerDict;
 }
 
 @end

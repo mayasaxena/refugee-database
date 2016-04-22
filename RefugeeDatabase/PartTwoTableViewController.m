@@ -11,9 +11,10 @@
 
 static NSString * const kPartTwoCellIdentifier = @"PartTwoTableViewCell";
 
-@interface PartTwoTableViewController ()
+@interface PartTwoTableViewController () <PartTwoTableViewCellDelegate>
 
 @property (strong, nonatomic) IBOutlet UIView *tableHeaderView;
+@property (strong, nonatomic) NSMutableDictionary *answers;
 
 @end
 
@@ -22,6 +23,18 @@ static NSString * const kPartTwoCellIdentifier = @"PartTwoTableViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self readQuestions];
+    self.answers = [NSMutableDictionary new];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    for (int i = 0; i < self.questions.count; i++) {
+        if (!self.answers[[NSString stringWithFormat:@"%d", i]]) {
+            [self.answers setValue:@"n/a" forKey:[NSString stringWithFormat:@"%d", i]];
+        }
+    }
+    [defaults setObject:self.answers forKey:@"Part2"];
 }
 
 #pragma mark - UITableViewDataSource
@@ -33,7 +46,7 @@ static NSString * const kPartTwoCellIdentifier = @"PartTwoTableViewCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 2;
+    return self.questions.count;
 }
 
 
@@ -42,6 +55,12 @@ static NSString * const kPartTwoCellIdentifier = @"PartTwoTableViewCell";
     
     NSString *questionText = self.questions[indexPath.row];
     cell.questionLabel.text = questionText;
+    cell.delegate = self;
+    
+    NSString *answer = self.answers[[@(indexPath.row) stringValue]];
+    if (answer) {
+        cell.questionTextView.text = answer;
+    }
     
     return cell;
 }
@@ -69,6 +88,14 @@ static NSString * const kPartTwoCellIdentifier = @"PartTwoTableViewCell";
         NSLog(@"Error reading file: %@", error.localizedDescription);
     
     self.questions = [fileContents componentsSeparatedByString:@"\n"];
+}
+
+#pragma mark - PartTwoTableViewCellDelegate
+
+- (void)tableViewCell:(PartTwoTableViewCell *)cell didChangeAnswer:(NSString *)answer {
+    NSLog(@"changed!");
+    NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
+    self.answers[[@(cellIndexPath.row) stringValue]] = answer;
 }
 
 @end

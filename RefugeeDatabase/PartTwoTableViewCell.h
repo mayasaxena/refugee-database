@@ -8,7 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class PartTwoTableViewCell;
+
+@protocol PartTwoTableViewCellDelegate
+
+- (void)tableViewCell:(PartTwoTableViewCell *)cell didChangeAnswer:(NSString *)answer;
+
+@end
+
 @interface PartTwoTableViewCell : UITableViewCell
+
+@property (weak, nonatomic) id<PartTwoTableViewCellDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 @property (weak, nonatomic) IBOutlet UITextView *questionTextView;

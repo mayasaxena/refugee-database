@@ -27,6 +27,7 @@ static const int PartThreeQuestionTableViewCellTextFieldCharacterLimit = 2;
 @implementation PartThreeQuestionTableViewCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     [self resetCell];
 }
 
@@ -57,25 +58,24 @@ static const int PartThreeQuestionTableViewCellTextFieldCharacterLimit = 2;
     }
 }
 
-- (IBAction)timeChanged:(UIDatePicker *)sender {
-}
-
-
 - (void)setupCellWithAnswers:(NSMutableDictionary *)answerDict {
     
     NSNumber *firstAnswer = answerDict[@"firstAnswer"];
     NSNumber *secondAnswer = answerDict[@"secondAnswer"];
     NSNumber *duration = answerDict[@"duration"];
     
-    if (firstAnswer) {
+    if (firstAnswer && [firstAnswer intValue] != UISegmentedControlNoSegment) {
+        
         if ([firstAnswer boolValue]) {
+            NSLog(@"first yes");
             [self selectYes:self.yesNoControl];
         } else {
             [self selectNo:self.yesNoControl];
         }
         
-        if (secondAnswer) {
+        if (secondAnswer  && [secondAnswer intValue] != UISegmentedControlNoSegment) {
             if ([secondAnswer boolValue]) {
+                NSLog(@"second yes");
                 [self selectYes:self.subQuestionOneControl];
             } else {
                 [self selectNo:self.subQuestionOneControl];

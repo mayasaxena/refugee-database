@@ -12,4 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 
+- (void)setupCellWithAnswer:(int)answer;
+
 @end

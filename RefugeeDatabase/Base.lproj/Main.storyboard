@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LmT-Zs-MIQ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -65,7 +65,10 @@
                             <outlet property="delegate" destination="vcA-DP-d1f" id="bhK-2u-jqb"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Part 1" image="first" id="hju-A4-6Cf"/>
+                    <tabBarItem key="tabBarItem" title="Part 1" id="hju-A4-6Cf">
+                        <inset key="imageInsets" minX="3" minY="14" maxX="0.0" maxY="15"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-16"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="tableHeaderView" destination="otq-9k-ApO" id="WPc-cV-TnS"/>
                     </connections>
@@ -411,7 +414,10 @@
                             <outlet property="delegate" destination="YbU-ET-7nB" id="9Gc-Sy-8FQ"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Part 3" id="lYh-oa-L91"/>
+                    <tabBarItem key="tabBarItem" title="Part 3" id="lYh-oa-L91">
+                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-16"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="tableHeaderView" destination="2Ga-2E-gsG" id="ty7-YV-8lO"/>
                     </connections>
@@ -462,7 +468,7 @@
         <scene sceneID="Ngx-J1-FgP">
             <objects>
                 <tableViewController title="Part 2" id="F8V-0z-d6X" customClass="PartTwoTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LLe-uT-Rwu">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LLe-uT-Rwu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -512,7 +518,10 @@
                             <outlet property="delegate" destination="F8V-0z-d6X" id="9go-RR-HnD"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Part 2" id="P0D-im-Zr3"/>
+                    <tabBarItem key="tabBarItem" title="Part 2" id="P0D-im-Zr3">
+                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="21"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-16"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="tableHeaderView" destination="uoc-vq-dRi" id="Tl6-sN-Pws"/>
                     </connections>
@@ -562,7 +571,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FzL-85-zEH">
-                                <rect key="frame" x="265" y="260" width="70" height="30"/>
+                                <rect key="frame" x="265" y="260.5" width="70" height="30"/>
                                 <state key="normal" title="Send data">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -621,7 +630,9 @@
                             <constraint firstAttribute="centerY" secondItem="FzL-85-zEH" secondAttribute="centerY" id="u1a-Fp-R8N"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Patient Data" image="third" id="eVF-bM-FsX"/>
+                    <tabBarItem key="tabBarItem" title="Patient Data" id="eVF-bM-FsX">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-16"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="firstNameField" destination="vP7-Ch-mSc" id="gzt-0y-LOQ"/>
                         <outlet property="lastNameField" destination="Yr4-h5-1lI" id="GFV-se-aAI"/>
@@ -636,7 +647,7 @@
         <scene sceneID="UfK-kc-98x">
             <objects>
                 <tableViewController title="Part 2" id="Ugl-dQ-c9T" userLabel="Part 4" customClass="PartFourTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cQi-JW-NRP">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cQi-JW-NRP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -662,6 +673,9 @@
                                                 <segment title="Quite a bit"/>
                                                 <segment title="Extremely"/>
                                             </segments>
+                                            <connections>
+                                                <action selector="frequencyChanged:" destination="I59-ks-qKq" eventType="valueChanged" id="Wbb-Ue-Kxp"/>
+                                            </connections>
                                         </segmentedControl>
                                     </subviews>
                                     <constraints>
@@ -677,6 +691,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="frequencySegmentedControl" destination="xOK-JQ-ZTb" id="qJq-on-DXe"/>
                                     <outlet property="questionLabel" destination="guE-gx-kTU" id="lb7-MS-JWn"/>
                                 </connections>
                             </tableViewCell>
@@ -686,7 +701,10 @@
                             <outlet property="delegate" destination="Ugl-dQ-c9T" id="wQt-XC-Ff9"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Part 4" image="second" id="5ob-hl-LTj"/>
+                    <tabBarItem key="tabBarItem" title="Part 4" id="5ob-hl-LTj">
+                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-16"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="tableHeaderView" destination="qr6-uJ-SEr" id="nB1-qq-WY6"/>
                     </connections>
@@ -735,6 +753,51 @@ Ask the patient how much the symptoms bothered them in the past week</string>
             </objects>
             <point key="canvasLocation" x="-678" y="2095"/>
         </scene>
+        <!--Main Screen View Controller-->
+        <scene sceneID="iz9-Z4-pYl">
+            <objects>
+                <viewController id="LmT-Zs-MIQ" customClass="MainScreenViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VNp-To-493"/>
+                        <viewControllerLayoutGuide type="bottom" id="SdR-jB-E52"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qNS-Ak-e0W">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l81-N9-RwU">
+                                <rect key="frame" x="221" y="415" width="158" height="30"/>
+                                <state key="normal" title="Create a patient record"/>
+                                <connections>
+                                    <segue destination="49e-Tb-3d3" kind="show" id="7zS-nN-yLH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngD-2G-Hyi">
+                                <rect key="frame" x="195" y="470" width="211" height="30"/>
+                                <state key="normal" title="View an existing patient record"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Refugee Health Care Database" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSV-tU-140">
+                                <rect key="frame" x="183" y="200" width="235.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ngD-2G-Hyi" firstAttribute="top" secondItem="l81-N9-RwU" secondAttribute="bottom" constant="25" id="Pz5-zZ-yG5"/>
+                            <constraint firstItem="SdR-jB-E52" firstAttribute="top" secondItem="ngD-2G-Hyi" secondAttribute="bottom" multiplier="1.2" id="Wif-HM-dUX"/>
+                            <constraint firstItem="ngD-2G-Hyi" firstAttribute="centerX" secondItem="qNS-Ak-e0W" secondAttribute="centerX" id="bgo-9Z-QQa"/>
+                            <constraint firstItem="gSV-tU-140" firstAttribute="centerX" secondItem="qNS-Ak-e0W" secondAttribute="centerX" id="dgA-aB-3g8"/>
+                            <constraint firstItem="l81-N9-RwU" firstAttribute="centerX" secondItem="qNS-Ak-e0W" secondAttribute="centerX" id="qvh-Tp-T4M"/>
+                            <constraint firstItem="VNp-To-493" firstAttribute="bottom" secondItem="gSV-tU-140" secondAttribute="top" multiplier="0.1" id="vZc-UJ-SXZ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GGx-QC-U6h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-790" y="-596"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
@@ -747,11 +810,11 @@ Ask the patient how much the symptoms bothered them in the past week</string>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="vcA-DP-d1f" kind="relationship" relationship="viewControllers" id="fdV-xb-YCQ"/>
-                        <segue destination="F8V-0z-d6X" kind="relationship" relationship="viewControllers" id="yf4-mr-NJV"/>
-                        <segue destination="Ugl-dQ-c9T" kind="relationship" relationship="viewControllers" id="lO7-AW-GTY"/>
-                        <segue destination="VKd-rX-gft" kind="relationship" relationship="viewControllers" id="sl4-pA-seb"/>
-                        <segue destination="YbU-ET-7nB" kind="relationship" relationship="viewControllers" id="9lT-Xx-FEV"/>
+                        <segue destination="vcA-DP-d1f" kind="relationship" relationship="viewControllers" id="dZh-Ef-sN4"/>
+                        <segue destination="F8V-0z-d6X" kind="relationship" relationship="viewControllers" id="wCk-nL-cbD"/>
+                        <segue destination="YbU-ET-7nB" kind="relationship" relationship="viewControllers" id="HHb-bq-YCA"/>
+                        <segue destination="Ugl-dQ-c9T" kind="relationship" relationship="viewControllers" id="AZm-eS-UmF"/>
+                        <segue destination="VKd-rX-gft" kind="relationship" relationship="viewControllers" id="rca-gT-9x0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -759,9 +822,4 @@ Ask the patient how much the symptoms bothered them in the past week</string>
             <point key="canvasLocation" x="-228" y="202"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
-        <image name="third" width="64" height="64"/>
-    </resources>
 </document>

@@ -27,6 +27,7 @@
 		A5BC2BB81C0C93D900940AB1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5BC2BB61C0C93D900940AB1 /* LaunchScreen.xib */; };
 		A5BC2BC41C0C93D900940AB1 /* RefugeeDatabaseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BC2BC31C0C93D900940AB1 /* RefugeeDatabaseTests.m */; };
 		A5BC2BD21C0C950B00940AB1 /* PartOneTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BC2BD11C0C950B00940AB1 /* PartOneTableViewController.m */; };
+		A5CDD0F31CC83C8900DFA9AF /* MainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CDD0F21CC83C8900DFA9AF /* MainScreenViewController.m */; };
 		B4B786387CEA9B156B995AD7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6B06C5C25BC9FD2608987D1 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,8 @@
 		A5BC2BC31C0C93D900940AB1 /* RefugeeDatabaseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RefugeeDatabaseTests.m; sourceTree = "<group>"; };
 		A5BC2BD01C0C950B00940AB1 /* PartOneTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartOneTableViewController.h; sourceTree = "<group>"; };
 		A5BC2BD11C0C950B00940AB1 /* PartOneTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartOneTableViewController.m; sourceTree = "<group>"; };
+		A5CDD0F11CC83C8900DFA9AF /* MainScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreenViewController.h; sourceTree = "<group>"; };
+		A5CDD0F21CC83C8900DFA9AF /* MainScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreenViewController.m; sourceTree = "<group>"; };
 		E6B06C5C25BC9FD2608987D1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -110,10 +113,10 @@
 		A52CD1A71C11E98A00257049 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				A5A2053F1C91122C00060B37 /* part3.txt */,
 				A52CD1A81C11E9B200257049 /* part1.txt */,
-				A56236431C120039007EB12B /* part4.txt */,
 				A56B0F0F1C7BFB1100382DAA /* part2.txt */,
+				A5A2053F1C91122C00060B37 /* part3.txt */,
+				A56236431C120039007EB12B /* part4.txt */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -149,14 +152,16 @@
 				A5BC2BB41C0C93D900940AB1 /* Images.xcassets */,
 				A5BC2BB61C0C93D900940AB1 /* LaunchScreen.xib */,
 				A5BC2BA41C0C93D900940AB1 /* Supporting Files */,
+				A5CDD0F11CC83C8900DFA9AF /* MainScreenViewController.h */,
+				A5CDD0F21CC83C8900DFA9AF /* MainScreenViewController.m */,
 				A5BC2BD01C0C950B00940AB1 /* PartOneTableViewController.h */,
 				A5BC2BD11C0C950B00940AB1 /* PartOneTableViewController.m */,
 				A52CD1AA1C11ED8900257049 /* PartOneQuestionTableViewCell.h */,
 				A52CD1AB1C11ED8900257049 /* PartOneQuestionTableViewCell.m */,
-				A56B0F111C7BFB9F00382DAA /* PartTwoTableViewCell.h */,
-				A56B0F121C7BFB9F00382DAA /* PartTwoTableViewCell.m */,
 				A56B0F0C1C7BFA9100382DAA /* PartTwoTableViewController.h */,
 				A56B0F0D1C7BFA9100382DAA /* PartTwoTableViewController.m */,
+				A56B0F111C7BFB9F00382DAA /* PartTwoTableViewCell.h */,
+				A56B0F121C7BFB9F00382DAA /* PartTwoTableViewCell.m */,
 				A5A2053C1C910E0600060B37 /* PartThreeTableViewController.h */,
 				A5A2053D1C910E0600060B37 /* PartThreeTableViewController.m */,
 				A5A205411C91129500060B37 /* PartThreeQuestionTableViewCell.h */,
@@ -371,6 +376,7 @@
 				A55D9D1B1C152C1600914678 /* PatientDataViewController.m in Sources */,
 				A5BC2BA71C0C93D900940AB1 /* main.m in Sources */,
 				A5BC2BD21C0C950B00940AB1 /* PartOneTableViewController.m in Sources */,
+				A5CDD0F31CC83C8900DFA9AF /* MainScreenViewController.m in Sources */,
 				A56236421C11FE8B007EB12B /* PartFourTableViewController.m in Sources */,
 				A56B0F0E1C7BFA9100382DAA /* PartTwoTableViewController.m in Sources */,
 			);

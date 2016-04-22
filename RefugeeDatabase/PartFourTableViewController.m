@@ -15,6 +15,7 @@ static const int PartFourQuestionTableViewCellHeight = 100;
 @interface PartFourTableViewController ()
 
 @property (weak, nonatomic) IBOutlet UIView *tableHeaderView;
+@property (strong, nonatomic) NSMutableDictionary *answers;
 
 @end
 
@@ -23,11 +24,24 @@ static const int PartFourQuestionTableViewCellHeight = 100;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self readQuestions];
+    self.answers = [NSMutableDictionary new];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView reloadData];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    for (int i = 0; i < self.questions.count; i++) {
+        if (!self.answers[[NSString stringWithFormat:@"%d", i]]) {
+            [self.answers setValue:@(UISegmentedControlNoSegment) forKey:[NSString stringWithFormat:@"%d", i]];
+        }
+    }
+    [defaults setObject:self.answers forKey:@"Part4"];
 }
 
 #pragma mark - Table view data source
@@ -50,6 +64,11 @@ static const int PartFourQuestionTableViewCellHeight = 100;
     NSString *index = [NSString stringWithFormat:@"%ld. %@", (long)indexPath.row + 1, self.questions[indexPath.row]];
     cell.questionLabel.text =  index;
     
+    NSNumber *answer = self.answers[[@(indexPath.row) stringValue]];
+    if (answer) {
+        [cell setupCellWithAnswer:[answer intValue]];
+    }
+    
     return cell;
 }
 
@@ -60,16 +79,6 @@ static const int PartFourQuestionTableViewCellHeight = 100;
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 150;
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 - (void)readQuestions {
     NSString *filepath = [[NSBundle mainBundle] pathForResource:@"part4" ofType:@"txt"];
