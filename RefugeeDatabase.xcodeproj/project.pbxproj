@@ -65,7 +65,7 @@
 		A57D9F641CC9CD8D00B787F5 /* PatientResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientResponse.m; sourceTree = "<group>"; };
 		A58938121CC9DA4300B9E9A9 /* PatientLookupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientLookupViewController.h; sourceTree = "<group>"; };
 		A58938131CC9DA4300B9E9A9 /* PatientLookupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientLookupViewController.m; sourceTree = "<group>"; };
-		A59B4E001C1525FC00F38951 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		A59B4E001C1525FC00F38951 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A5A2053C1C910E0600060B37 /* PartThreeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartThreeTableViewController.h; sourceTree = "<group>"; };
 		A5A2053D1C910E0600060B37 /* PartThreeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartThreeTableViewController.m; sourceTree = "<group>"; };
 		A5A2053F1C91122C00060B37 /* part3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = part3.txt; sourceTree = "<group>"; };

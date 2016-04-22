@@ -48,9 +48,7 @@ static const float PartOneQuestionTableViewCellHeight = 100;
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    NSMutableDictionary *orderedAnswers = [NSMutableDictionary new];
-    
-    [PatientResponse sharedResponse].partOneAnswers = orderedAnswers;
+    [PatientResponse sharedResponse].partOneAnswers = self.answers;
 }
 
 #pragma mark - UITableViewDataSource

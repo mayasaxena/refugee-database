@@ -94,8 +94,9 @@
 
 - (NSString *)stringFromNumberDictionary:(NSDictionary *)dictionary {
     NSString *valueString = [NSString new];
-    for (NSNumber *value in [dictionary allValues])
-    {
+    NSArray *sortedKeys = [self getSortedKeysFromDictionary:dictionary];
+    for (NSString *key in sortedKeys) {
+        NSNumber *value = dictionary[key];
         valueString = [valueString stringByAppendingString:[value stringValue]];
         valueString = [valueString stringByAppendingString:@","];
     }
@@ -104,10 +105,10 @@
 
 - (NSString *)stringFromNestedDictionary:(NSDictionary *)dictionary {
     NSString *valueString = [NSString new];
-    for (NSDictionary *valueDict in [dictionary allValues])
-    {
-        for (NSNumber *value in [valueDict allValues])
-        {
+    NSArray *sortedKeys = [self getSortedKeysFromDictionary:dictionary];
+    for (NSString *key in sortedKeys) {
+        NSDictionary *valueDict = dictionary[key];
+        for (NSNumber *value in [valueDict allValues]) {
             valueString = [valueString stringByAppendingString:[value stringValue]];
             valueString = [valueString stringByAppendingString:@","];
         }
@@ -117,12 +118,21 @@
 
 - (NSString *)stringFromStringDictionary:(NSDictionary *)dictionary {
     NSString *valueString = [NSString new];
-    for (NSString *value in [dictionary allValues])
-    {
+    NSArray *sortedKeys = [self getSortedKeysFromDictionary:dictionary];
+    for (NSString *key in sortedKeys) {
+        NSString *value = dictionary[key];
         valueString = [valueString stringByAppendingString:value];
         valueString = [valueString stringByAppendingString:@","];
     }
     return valueString;
+}
+
+- (NSArray *)getSortedKeysFromDictionary:(NSDictionary *)dictionary {
+    NSArray * sortedKeys = [[dictionary allKeys] sortedArrayUsingComparator:^NSComparisonResult(NSString *obj1, NSString *obj2) {
+        return [obj1 compare:obj2 options:NSNumericSearch];
+    }];
+    
+    return sortedKeys;
 }
 
 - (void) showErrorAlert {
