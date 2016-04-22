@@ -32,12 +32,17 @@ static const float PartThreeQuestionFiveTableViewCellHeight = 160;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self readQuestions];
-    self.answers = [NSMutableDictionary new];
     
-    NSMutableDictionary *emptyAnswer = [NSMutableDictionary dictionaryWithObjectsAndKeys:@(UISegmentedControlNoSegment), @"firstAnswer", @(UISegmentedControlNoSegment), @"secondAnswer", @0, @"duration", nil];
+    if ([PatientResponse sharedResponse].partThreeAnswers) {
+        self.answers = [PatientResponse sharedResponse].partThreeAnswers;
+    } else {
+        self.answers = [NSMutableDictionary new];
     
-    for (int i = 0; i < self.questions.count; i++) {
-        [self.answers setValue:[emptyAnswer mutableCopy] forKey:[NSString stringWithFormat:@"%d", i]];
+        NSMutableDictionary *emptyAnswer = [NSMutableDictionary dictionaryWithObjectsAndKeys:@(UISegmentedControlNoSegment), @"firstAnswer", @(UISegmentedControlNoSegment), @"secondAnswer", @0, @"duration", nil];
+        
+        for (int i = 0; i < self.questions.count; i++) {
+            [self.answers setValue:[emptyAnswer mutableCopy] forKey:[NSString stringWithFormat:@"%d", i]];
+        }
     }
 }
 

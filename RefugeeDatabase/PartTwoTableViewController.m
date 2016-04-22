@@ -23,8 +23,11 @@ static NSString * const kPartTwoCellIdentifier = @"PartTwoTableViewCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self readQuestions];
-    self.answers = [NSMutableDictionary new];
+    [self readQuestions];if ([PatientResponse sharedResponse].partTwoAnswers) {
+        self.answers = [PatientResponse sharedResponse].partTwoAnswers;
+    } else {
+        self.answers = [NSMutableDictionary new];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

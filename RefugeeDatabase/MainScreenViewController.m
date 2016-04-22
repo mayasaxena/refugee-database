@@ -7,6 +7,7 @@
 //
 
 #import "MainScreenViewController.h"
+#import "PatientResponse.h"
 
 @interface MainScreenViewController ()
 
@@ -14,9 +15,9 @@
 
 @implementation MainScreenViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+- (IBAction)createButtonTapped:(UIButton *)sender {
+    [[PatientResponse sharedResponse] resetResponse];
 }
+
 
 @end

@@ -772,6 +772,7 @@ Ask the patient how much the symptoms bothered them in the past week</string>
                                 <rect key="frame" x="221" y="415" width="158" height="30"/>
                                 <state key="normal" title="Create a patient record"/>
                                 <connections>
+                                    <action selector="createButtonTapped:" destination="LmT-Zs-MIQ" eventType="touchUpInside" id="PBn-ae-itW"/>
                                     <segue destination="49e-Tb-3d3" kind="show" id="7zS-nN-yLH"/>
                                 </connections>
                             </button>
@@ -817,8 +818,8 @@ Ask the patient how much the symptoms bothered them in the past week</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for a patient in the database" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKf-Cd-4Tc">
-                                <rect key="frame" x="164" y="160" width="272" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View record for a patient in the database" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKf-Cd-4Tc">
+                                <rect key="frame" x="145" y="160" width="310" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -830,13 +831,13 @@ Ask the patient how much the symptoms bothered them in the past week</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCz-Jt-pkG">
-                                <rect key="frame" x="110" y="349.5" width="80" height="21"/>
+                                <rect key="frame" x="110" y="349" width="80" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vex-wW-IEd" userLabel="First name field">
-                                <rect key="frame" x="297.5" y="285" width="185" height="30"/>
+                                <rect key="frame" x="297" y="285" width="185" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="185" id="jzw-9A-aPW"/>
                                 </constraints>
@@ -844,13 +845,20 @@ Ask the patient how much the symptoms bothered them in the past week</string>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fph-wX-jS5" userLabel="Last name field">
-                                <rect key="frame" x="297.5" y="345" width="185" height="30"/>
+                                <rect key="frame" x="297" y="345" width="185" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="185" id="5qa-4H-6LP"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKp-6N-nbh">
+                                <rect key="frame" x="277" y="433" width="46" height="30"/>
+                                <state key="normal" title="View"/>
+                                <connections>
+                                    <action selector="viewButtonTapped:" destination="HJN-fz-Dhw" eventType="touchUpInside" id="GYO-fx-iFe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -866,6 +874,11 @@ Ask the patient how much the symptoms bothered them in the past week</string>
                             <constraint firstItem="4Lp-xy-7po" firstAttribute="centerX" secondItem="nAh-11-nJb" secondAttribute="centerX" multiplier="0.5" id="jDG-6Y-EYp"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="firstNameField" destination="Vex-wW-IEd" id="UfQ-kL-QJH"/>
+                        <outlet property="lastNameField" destination="fph-wX-jS5" id="3fU-80-tLa"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="PatientLookupSegue" id="O1t-l7-fq0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mUz-wX-5my" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -913,4 +926,7 @@ Ask the patient how much the symptoms bothered them in the past week</string>
             <point key="canvasLocation" x="-790" y="-596"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="O1t-l7-fq0"/>
+    </inferredMetricsTieBreakers>
 </document>

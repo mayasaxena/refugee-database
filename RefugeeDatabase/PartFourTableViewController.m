@@ -25,7 +25,11 @@ static const int PartFourQuestionTableViewCellHeight = 100;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self readQuestions];
-    self.answers = [NSMutableDictionary new];
+    if ([PatientResponse sharedResponse].partFourAnswers) {
+        self.answers = [PatientResponse sharedResponse].partFourAnswers;
+    } else {
+        self.answers = [NSMutableDictionary new];
+    }
 
 }
 

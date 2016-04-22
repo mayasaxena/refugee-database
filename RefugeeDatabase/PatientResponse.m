@@ -28,5 +28,40 @@
             self.partFourAnswers);
 }
 
+- (void)resetResponse {
+    self.firstName = nil;
+    self.lastName = nil;
+    self.partOneAnswers = nil;
+    self.partTwoAnswers = nil;
+    self.partThreeAnswers = nil;
+    self.partFourAnswers = nil;
+}
+
+- (void)loadResponseFromDatabaseDictionary:(NSDictionary *)dictionary {
+    self.firstName = dictionary[@"first_name"];
+    self.lastName = dictionary[@"last_name"];
+    
+    [self readInPartOneFromString:dictionary[@"part1"]];
+//    NSString *partTwo = dictionary[@"part2"];
+//    NSString *partThree = dictionary[@"part3"];
+//    NSString *partFour = dictionary[@"part4"];
+
+}
+
+- (void)readInPartOneFromString:(NSString *)partOneString {
+    //TODO: remove hardcoded delimiter
+    
+    NSMutableDictionary *partOneAnswerDict = [NSMutableDictionary new];
+    
+    NSArray *partOneAnswerArray = [partOneString componentsSeparatedByString:@","];
+    int i = 0;
+    for (NSString *answer in partOneAnswerArray) {
+        partOneAnswerDict[[@(i) stringValue]] = @([answer intValue]);
+        i++;
+    }
+    
+    NSLog(@"%@", partOneAnswerDict);
+    self.partOneAnswers = partOneAnswerDict;
+}
 
 @end

@@ -20,5 +20,7 @@
 + (instancetype)sharedResponse;
 
 - (BOOL)isComplete;
+- (void)resetResponse;
+- (void)loadResponseFromDatabaseDictionary:(NSDictionary *)dictionary;
 
 @end

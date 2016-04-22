@@ -26,24 +26,31 @@ static const float PartOneQuestionTableViewCellHeight = 100;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self readQuestions];
-    self.answers = [NSMutableDictionary new];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    PatientResponse *sharedResponse = [PatientResponse sharedResponse];
+    if (sharedResponse.partOneAnswers) {
+        self.answers = sharedResponse.partOneAnswers;
+    } else {
+        self.answers = [NSMutableDictionary new];
+        for (int i = 0; i < self.questions.count; i++) {
+            [self.answers setValue:@(UISegmentedControlNoSegment) forKey:[NSString stringWithFormat:@"%d", i]];
+        }
+    }
     [self.tableView reloadData];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    NSMutableDictionary *orderedAnswers = [NSMutableDictionary new];
     
-    for (int i = 0; i < self.questions.count; i++) {
-        if (!self.answers[[NSString stringWithFormat:@"%d", i]]) {
-            [self.answers setValue:@(UISegmentedControlNoSegment) forKey:[NSString stringWithFormat:@"%d", i]];
-        }
-    }
-    
-    [PatientResponse sharedResponse].partOneAnswers = self.answers;
+    [PatientResponse sharedResponse].partOneAnswers = orderedAnswers;
 }
 
 #pragma mark - UITableViewDataSource
@@ -77,7 +84,6 @@ static const float PartOneQuestionTableViewCellHeight = 100;
         if ([answer intValue] == UISegmentedControlNoSegment) {
             [cell resetCell];
         } else {
-            
             if ([answer boolValue]) {
                 [cell selectYes];
             } else {
