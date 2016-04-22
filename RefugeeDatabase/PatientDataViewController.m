@@ -10,11 +10,12 @@
 #import <AFNetworking/AFNetworking.h>
 #import "PatientResponse.h"
 
-@interface PatientDataViewController ()
+@interface PatientDataViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *firstNameField;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameField;
 @property (weak, nonatomic) IBOutlet UIButton *sendDataButton;
+@property (nonatomic) UITextField* currentTextField;
 
 @end
 
@@ -22,6 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.firstNameField.delegate = self;
+    self.lastNameField.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -30,17 +33,28 @@
 }
 
 - (IBAction)sendButtonTapped:(UIButton *)sender {
-    NSString *firstName = [self.firstNameField.text isEqualToString:@""] ? @"None" : self.firstNameField.text;
-    NSString *lastName = [self.lastNameField.text isEqualToString:@""] ? @"None" : self.lastNameField.text;
+    if (self.currentTextField) {
+        [self.currentTextField resignFirstResponder];
+    }
     
     PatientResponse *sharedResponse = [PatientResponse sharedResponse];
+    if ([sharedResponse isComplete]) {
+        [self savePatientResponse:sharedResponse];
+    } else {
+        [self showErrorAlert];
+    }
+}
+
+- (void)savePatientResponse:(PatientResponse *)response {
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    NSDictionary *part1 = [sharedResponse.partOneAnswers copy];
-    NSDictionary *part2 = [sharedResponse.partTwoAnswers copy];
-    NSDictionary *part3 = [sharedResponse.partThreeAnswers copy];
-    NSDictionary *part4 = [sharedResponse.partFourAnswers copy];
+    NSString *firstName = response.firstName;
+    NSString *lastName = response.lastName;
+    NSDictionary *part1 = [response.partOneAnswers copy];
+    NSDictionary *part2 = [response.partTwoAnswers copy];
+    NSDictionary *part3 = [response.partThreeAnswers copy];
+    NSDictionary *part4 = [response.partFourAnswers copy];
     
     NSDictionary *userInfo = @{ @"firstName" : firstName,
                                 @"lastName" : lastName,
@@ -48,16 +62,16 @@
                                 @"Part2" : part2,
                                 @"Part3" : part3,
                                 @"Part4" : part4 };
-
+    
     NSUInteger hash = [[firstName stringByAppendingString:lastName] hash];
     [defaults setObject:userInfo forKey:[NSString stringWithFormat:@"%lu", (unsigned long)hash]];
     
     NSDictionary *params = @{ @"first_name" : firstName,
-                                        @"last_name" : firstName,
-                                        @"part1" : [self stringFromNumberDictionary:part1],
-                                        @"part2" : [self stringFromStringDictionary:part2],
-                                        @"part3" : [self stringFromNestedDictionary:part3],
-                                        @"part4" : [self stringFromNumberDictionary:part4] };
+                              @"last_name" : lastName,
+                              @"part1" : [self stringFromNumberDictionary:part1],
+                              @"part2" : [self stringFromStringDictionary:part2],
+                              @"part3" : [self stringFromNestedDictionary:part3],
+                              @"part4" : [self stringFromNumberDictionary:part4] };
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -109,6 +123,33 @@
         valueString = [valueString stringByAppendingString:@","];
     }
     return valueString;
+}
+
+- (void) showErrorAlert {
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error!"
+                                                                   message:@"Please go through all parts of questionnaire and fill in first and last name."
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                               style:UIAlertActionStyleDefault
+                               handler:nil];
+    
+    [alert addAction:okAction];
+    [self presentViewController:alert animated:NO completion:nil];
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    self.currentTextField = textField;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    if ([textField isEqual:self.firstNameField]) {
+        [PatientResponse sharedResponse].firstName = textField.text;
+        self.currentTextField = nil;
+    } else if ([textField isEqual:self.lastNameField]) {
+        [PatientResponse sharedResponse].lastName = textField.text;
+        self.currentTextField = nil;
+    }
 }
 
 @end
