@@ -8,6 +8,7 @@
 
 #import "PartFourTableViewController.h"
 #import "PartFourQuestionTableViewCell.h"
+#import "PatientResponse.h"
 
 static NSString * const PartFourQuestionTableViewCellIdentifier = @"PartFourQuestionTableViewCell";
 static const int PartFourQuestionTableViewCellHeight = 100;
@@ -35,13 +36,13 @@ static const int PartFourQuestionTableViewCellHeight = 100;
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     for (int i = 0; i < self.questions.count; i++) {
         if (!self.answers[[NSString stringWithFormat:@"%d", i]]) {
             [self.answers setValue:@(UISegmentedControlNoSegment) forKey:[NSString stringWithFormat:@"%d", i]];
         }
     }
-    [defaults setObject:self.answers forKey:@"Part4"];
+    [PatientResponse sharedResponse].partFourAnswers = self.answers;
 }
 
 #pragma mark - Table view data source

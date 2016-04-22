@@ -7,8 +7,8 @@
 //
 
 #import "PartThreeTableViewController.h"
-
 #import "PartThreeQuestionTableViewCell.h"
+#import "PatientResponse.h"
 
 static NSString * const PartThreeGeneralQuestionTableViewCellIdentifier = @"PartThreeQuestionTableViewCell";
 static NSString * const PartThreeQuestionFiveTableViewCellIdentifier = @"PartThreeQuestionFiveTableViewCell";
@@ -35,6 +35,7 @@ static const float PartThreeQuestionFiveTableViewCellHeight = 160;
     self.answers = [NSMutableDictionary new];
     
     NSMutableDictionary *emptyAnswer = [NSMutableDictionary dictionaryWithObjectsAndKeys:@(UISegmentedControlNoSegment), @"firstAnswer", @(UISegmentedControlNoSegment), @"secondAnswer", @0, @"duration", nil];
+    
     for (int i = 0; i < self.questions.count; i++) {
         [self.answers setValue:[emptyAnswer mutableCopy] forKey:[NSString stringWithFormat:@"%d", i]];
     }
@@ -47,8 +48,7 @@ static const float PartThreeQuestionFiveTableViewCellHeight = 160;
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:self.answers forKey:@"Part3"];
+    [PatientResponse sharedResponse].partThreeAnswers = self.answers;
 }
 
 #pragma mark - UITableViewDataSource

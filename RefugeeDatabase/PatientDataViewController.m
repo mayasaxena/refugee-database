@@ -8,6 +8,7 @@
 
 #import "PatientDataViewController.h"
 #import <AFNetworking/AFNetworking.h>
+#import "PatientResponse.h"
 
 @interface PatientDataViewController ()
 
@@ -32,11 +33,14 @@
     NSString *firstName = [self.firstNameField.text isEqualToString:@""] ? @"None" : self.firstNameField.text;
     NSString *lastName = [self.lastNameField.text isEqualToString:@""] ? @"None" : self.lastNameField.text;
     
+    PatientResponse *sharedResponse = [PatientResponse sharedResponse];
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary *part1 = [defaults dictionaryForKey:@"Part1"];
-    NSDictionary *part2 = [defaults dictionaryForKey:@"Part2"];
-    NSDictionary *part3 = [defaults dictionaryForKey:@"Part3"];
-    NSDictionary *part4 = [defaults dictionaryForKey:@"Part4"];
+    
+    NSDictionary *part1 = [sharedResponse.partOneAnswers copy];
+    NSDictionary *part2 = [sharedResponse.partTwoAnswers copy];
+    NSDictionary *part3 = [sharedResponse.partThreeAnswers copy];
+    NSDictionary *part4 = [sharedResponse.partFourAnswers copy];
     
     NSDictionary *userInfo = @{ @"firstName" : firstName,
                                 @"lastName" : lastName,
@@ -46,7 +50,7 @@
                                 @"Part4" : part4 };
 
     NSUInteger hash = [[firstName stringByAppendingString:lastName] hash];
-    //    [defaults setObject:userInfo forKey:[NSString stringWithFormat:@"%lu", (unsigned long)hash]];
+    [defaults setObject:userInfo forKey:[NSString stringWithFormat:@"%lu", (unsigned long)hash]];
     
     NSDictionary *params = @{ @"first_name" : firstName,
                                         @"last_name" : firstName,

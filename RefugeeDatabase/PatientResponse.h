@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UserResponse : NSObject
+@interface PatientResponse : NSObject
 
 @property (strong, nonatomic) NSString *firstName;
 @property (strong, nonatomic) NSString *lastName;
@@ -17,6 +17,8 @@
 @property (strong, nonatomic) NSMutableDictionary *partThreeAnswers;
 @property (strong, nonatomic) NSMutableDictionary *partFourAnswers;
 
-+ (instancetype)sharedAnswers;
++ (instancetype)sharedResponse;
+
+- (BOOL)isComplete;
 
 @end

@@ -8,7 +8,7 @@
 
 #import "PartOneTableViewController.h"
 #import "PartOneQuestionTableViewCell.h"
-#import "UserResponse.h"
+#import "PatientResponse.h"
 
 static NSString * const PartOneQuestionTableViewCellIdentifier = @"PartOneQuestionTableViewCell";
 static const float PartOneQuestionTableViewCellHeight = 100;
@@ -36,13 +36,14 @@ static const float PartOneQuestionTableViewCellHeight = 100;
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    
     for (int i = 0; i < self.questions.count; i++) {
         if (!self.answers[[NSString stringWithFormat:@"%d", i]]) {
             [self.answers setValue:@(UISegmentedControlNoSegment) forKey:[NSString stringWithFormat:@"%d", i]];
         }
     }
     
-    [Answers sharedAnswers].part1 = self.answers;
+    [PatientResponse sharedResponse].partOneAnswers = self.answers;
 }
 
 #pragma mark - UITableViewDataSource

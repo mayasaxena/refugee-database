@@ -8,6 +8,7 @@
 
 #import "PartTwoTableViewController.h"
 #import "PartTwoTableViewCell.h"
+#import "PatientResponse.h"
 
 static NSString * const kPartTwoCellIdentifier = @"PartTwoTableViewCell";
 
@@ -28,13 +29,14 @@ static NSString * const kPartTwoCellIdentifier = @"PartTwoTableViewCell";
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
     for (int i = 0; i < self.questions.count; i++) {
         if (!self.answers[[NSString stringWithFormat:@"%d", i]]) {
             [self.answers setValue:@"n/a" forKey:[NSString stringWithFormat:@"%d", i]];
         }
     }
-    [defaults setObject:self.answers forKey:@"Part2"];
+    
+    [PatientResponse sharedResponse].partTwoAnswers = self.answers;
 }
 
 #pragma mark - UITableViewDataSource
