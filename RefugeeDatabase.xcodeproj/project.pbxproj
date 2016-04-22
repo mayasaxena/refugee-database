@@ -16,6 +16,7 @@
 		A56B0F0E1C7BFA9100382DAA /* PartTwoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56B0F0D1C7BFA9100382DAA /* PartTwoTableViewController.m */; };
 		A56B0F101C7BFB1100382DAA /* part2.txt in Resources */ = {isa = PBXBuildFile; fileRef = A56B0F0F1C7BFB1100382DAA /* part2.txt */; };
 		A56B0F131C7BFB9F00382DAA /* PartTwoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A56B0F121C7BFB9F00382DAA /* PartTwoTableViewCell.m */; };
+		A57D9F651CC9CD8D00B787F5 /* UserResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A57D9F641CC9CD8D00B787F5 /* UserResponse.m */; };
 		A59B4E011C1525FC00F38951 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = A59B4E001C1525FC00F38951 /* Podfile */; };
 		A5A2053E1C910E0600060B37 /* PartThreeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A2053D1C910E0600060B37 /* PartThreeTableViewController.m */; };
 		A5A205401C91122C00060B37 /* part3.txt in Resources */ = {isa = PBXBuildFile; fileRef = A5A2053F1C91122C00060B37 /* part3.txt */; };
@@ -59,6 +60,8 @@
 		A56B0F0F1C7BFB1100382DAA /* part2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = part2.txt; sourceTree = "<group>"; };
 		A56B0F111C7BFB9F00382DAA /* PartTwoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartTwoTableViewCell.h; sourceTree = "<group>"; };
 		A56B0F121C7BFB9F00382DAA /* PartTwoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartTwoTableViewCell.m; sourceTree = "<group>"; };
+		A57D9F631CC9CD7000B787F5 /* UserResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserResponse.h; sourceTree = "<group>"; };
+		A57D9F641CC9CD8D00B787F5 /* UserResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserResponse.m; sourceTree = "<group>"; };
 		A59B4E001C1525FC00F38951 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		A5A2053C1C910E0600060B37 /* PartThreeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartThreeTableViewController.h; sourceTree = "<group>"; };
 		A5A2053D1C910E0600060B37 /* PartThreeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartThreeTableViewController.m; sourceTree = "<group>"; };
@@ -172,6 +175,8 @@
 				A56236461C120098007EB12B /* PartFourQuestionTableViewCell.m */,
 				A55D9D191C152C1600914678 /* PatientDataViewController.h */,
 				A55D9D1A1C152C1600914678 /* PatientDataViewController.m */,
+				A57D9F631CC9CD7000B787F5 /* UserResponse.h */,
+				A57D9F641CC9CD8D00B787F5 /* UserResponse.m */,
 			);
 			path = RefugeeDatabase;
 			sourceTree = "<group>";
@@ -379,6 +384,7 @@
 				A5CDD0F31CC83C8900DFA9AF /* MainScreenViewController.m in Sources */,
 				A56236421C11FE8B007EB12B /* PartFourTableViewController.m in Sources */,
 				A56B0F0E1C7BFA9100382DAA /* PartTwoTableViewController.m in Sources */,
+				A57D9F651CC9CD8D00B787F5 /* UserResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -62,8 +62,6 @@
     
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
-    NSString *dummy = @"{ \"first_name\": \"a\", \"last_name\": \"b\", \"part1\": \"\", \"part2\": \"\", \"part3\": \"\", \"part4\": \"\" }";
-    
     [manager POST:@"https://desolate-bayou-99096.herokuapp.com/records/" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         self.sendDataButton.titleLabel.text = @"Data sent!";
@@ -74,22 +72,17 @@
         NSLog(@"Error: %@", error);
         
     }];
-    
 }
-
-
-
 
 - (NSString *)stringFromNumberDictionary:(NSDictionary *)dictionary {
     NSString *valueString = [NSString new];
     for (NSNumber *value in [dictionary allValues])
     {
-        
         valueString = [valueString stringByAppendingString:[value stringValue]];
+        valueString = [valueString stringByAppendingString:@","];
     }
     return valueString;
 }
-
 
 - (NSString *)stringFromNestedDictionary:(NSDictionary *)dictionary {
     NSString *valueString = [NSString new];
@@ -98,6 +91,7 @@
         for (NSNumber *value in [valueDict allValues])
         {
             valueString = [valueString stringByAppendingString:[value stringValue]];
+            valueString = [valueString stringByAppendingString:@","];
         }
     }
     return valueString;
@@ -108,9 +102,9 @@
     for (NSString *value in [dictionary allValues])
     {
         valueString = [valueString stringByAppendingString:value];
+        valueString = [valueString stringByAppendingString:@","];
     }
     return valueString;
 }
-
 
 @end

@@ -49,7 +49,6 @@ static NSString * const kPartTwoCellIdentifier = @"PartTwoTableViewCell";
     return self.questions.count;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PartTwoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kPartTwoCellIdentifier forIndexPath:indexPath];
     

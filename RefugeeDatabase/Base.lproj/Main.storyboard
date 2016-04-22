@@ -751,7 +751,7 @@ Ask the patient how much the symptoms bothered them in the past week</string>
                     </constraints>
                 </view>
             </objects>
-            <point key="canvasLocation" x="-678" y="2095"/>
+            <point key="canvasLocation" x="-678" y="2403"/>
         </scene>
         <!--Main Screen View Controller-->
         <scene sceneID="iz9-Z4-pYl">
@@ -775,6 +775,9 @@ Ask the patient how much the symptoms bothered them in the past week</string>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngD-2G-Hyi">
                                 <rect key="frame" x="195" y="470" width="211" height="30"/>
                                 <state key="normal" title="View an existing patient record"/>
+                                <connections>
+                                    <segue destination="HJN-fz-Dhw" kind="show" id="Png-MD-IAC"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Refugee Health Care Database" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSV-tU-140">
                                 <rect key="frame" x="183" y="200" width="235.5" height="21"/>
@@ -797,6 +800,24 @@ Ask the patient how much the symptoms bothered them in the past week</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GGx-QC-U6h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-790" y="-596"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="hsZ-t2-g7E">
+            <objects>
+                <viewController id="HJN-fz-Dhw" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gGp-Rh-DhD"/>
+                        <viewControllerLayoutGuide type="bottom" id="8w5-uq-939"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nAh-11-nJb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mUz-wX-5my" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-76" y="-601"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
