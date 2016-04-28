@@ -23,7 +23,7 @@
 
 
 - (IBAction)frequencyChanged:(UISegmentedControl *)sender {
-    
+    [self.delegate tableViewCell:self didChooseAnswer:sender.selectedSegmentIndex];
 }
 
 - (void)setupCellWithAnswer:(int)answer {

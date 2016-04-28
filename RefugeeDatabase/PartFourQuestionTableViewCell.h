@@ -8,9 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class PartFourQuestionTableViewCell;
+
+@protocol PartFourQuestionTableViewCellDelegate
+
+- (void)tableViewCell:(PartFourQuestionTableViewCell *)cell didChooseAnswer:(NSInteger)answer;
+
+@end
+
 @interface PartFourQuestionTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
+@property (weak, nonatomic) id<PartFourQuestionTableViewCellDelegate> delegate;
 
 - (void)setupCellWithAnswer:(int)answer;
 

@@ -44,7 +44,7 @@
     [self readInPartOneFromString:dictionary[@"part1"]];
     [self readInPartTwoFromString:dictionary[@"part2"]];
     [self readInPartThreeFromString:dictionary[@"part3"]];
-//    NSString *partFour = dictionary[@"part4"];
+    [self readInPartFourFromString:dictionary[@"part4"]];
 
 }
 
@@ -102,6 +102,21 @@
     
     NSLog(@"%@", partThreeAnswerDict);
     self.partThreeAnswers = partThreeAnswerDict;
+}
+
+- (void)readInPartFourFromString:(NSString *)partFourString {
+    //TODO: remove hardcoded delimiter
+    
+    NSMutableDictionary *partFourAnswerDict = [NSMutableDictionary new];
+    
+    NSArray *partFourAnswerArray = [partFourString componentsSeparatedByString:@","];
+    int i = 0;
+    for (NSString *answer in partFourAnswerArray) {
+        partFourAnswerDict[[@(i) stringValue]] = @([answer intValue]);
+        i++;
+    }
+    
+    self.partFourAnswers = partFourAnswerDict;
 }
 
 @end

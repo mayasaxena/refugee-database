@@ -13,7 +13,7 @@
 static NSString * const PartFourQuestionTableViewCellIdentifier = @"PartFourQuestionTableViewCell";
 static const int PartFourQuestionTableViewCellHeight = 100;
 
-@interface PartFourTableViewController ()
+@interface PartFourTableViewController () <PartFourQuestionTableViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *tableHeaderView;
 @property (strong, nonatomic) NSMutableDictionary *answers;
@@ -68,6 +68,7 @@ static const int PartFourQuestionTableViewCellHeight = 100;
     
     NSString *index = [NSString stringWithFormat:@"%ld. %@", (long)indexPath.row + 1, self.questions[indexPath.row]];
     cell.questionLabel.text =  index;
+    cell.delegate = self;
     
     NSNumber *answer = self.answers[[@(indexPath.row) stringValue]];
     if (answer) {
@@ -94,6 +95,13 @@ static const int PartFourQuestionTableViewCellHeight = 100;
         NSLog(@"Error reading file: %@", error.localizedDescription);
     
     self.questions = [fileContents componentsSeparatedByString:@"\n"];
+}
+
+#pragma mark - PartFourQuestionTableViewCellDelegate
+
+- (void)tableViewCell:(PartFourQuestionTableViewCell *)cell didChooseAnswer:(NSInteger)answer {
+    NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
+    self.answers[[@(cellIndexPath.row) stringValue]] = @(answer);
 }
 
 @end
