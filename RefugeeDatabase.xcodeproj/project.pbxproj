@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A51D5A2B1CD27AB6002809FB /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = A51D5A2A1CD27AB6002809FB /* README.md */; };
 		A52CD1A91C11E9B200257049 /* part1.txt in Resources */ = {isa = PBXBuildFile; fileRef = A52CD1A81C11E9B200257049 /* part1.txt */; };
 		A52CD1AC1C11ED8900257049 /* PartOneQuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A52CD1AB1C11ED8900257049 /* PartOneQuestionTableViewCell.m */; };
 		A55D9D1B1C152C1600914678 /* PatientDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A55D9D1A1C152C1600914678 /* PatientDataViewController.m */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		354AEE2C58C76BD64930A368 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8D0DAEB638A1D4424882DBC9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A51D5A2A1CD27AB6002809FB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A52CD1A81C11E9B200257049 /* part1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = part1.txt; sourceTree = "<group>"; };
 		A52CD1AA1C11ED8900257049 /* PartOneQuestionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartOneQuestionTableViewCell.h; sourceTree = "<group>"; };
 		A52CD1AB1C11ED8900257049 /* PartOneQuestionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartOneQuestionTableViewCell.m; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 		A5BC2B981C0C93D900940AB1 = {
 			isa = PBXGroup;
 			children = (
+				A51D5A2A1CD27AB6002809FB /* README.md */,
 				A59B4E001C1525FC00F38951 /* Podfile */,
 				A5BC2BA31C0C93D900940AB1 /* RefugeeDatabase */,
 				A5BC2BC01C0C93D900940AB1 /* RefugeeDatabaseTests */,
@@ -389,6 +392,7 @@
 				A5BC2BD21C0C950B00940AB1 /* PartOneTableViewController.m in Sources */,
 				A5CDD0F31CC83C8900DFA9AF /* MainScreenViewController.m in Sources */,
 				A56236421C11FE8B007EB12B /* PartFourTableViewController.m in Sources */,
+				A51D5A2B1CD27AB6002809FB /* README.md in Sources */,
 				A56B0F0E1C7BFA9100382DAA /* PartTwoTableViewController.m in Sources */,
 				A57D9F651CC9CD8D00B787F5 /* PatientResponse.m in Sources */,
 			);
