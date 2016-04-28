@@ -571,7 +571,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="FzL-85-zEH">
-                                <rect key="frame" x="250" y="260.5" width="100" height="30"/>
+                                <rect key="frame" x="250" y="260" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="20t-n9-ngN"/>
                                 </constraints>
@@ -611,16 +611,47 @@
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patient Information" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ff0-fw-SJf">
-                                <rect key="frame" x="227" y="70" width="145" height="20.5"/>
+                                <rect key="frame" x="227" y="114" width="145" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view hidden="YES" alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fGv-bU-4Vx">
+                                <rect key="frame" x="225" y="200" width="150" height="150"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="9tf-S0-l7s">
+                                        <rect key="frame" x="57" y="45" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saving" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wec-Wi-6VT">
+                                        <rect key="frame" x="49" y="97" width="51.5" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="JfD-F8-klY"/>
+                                    <constraint firstAttribute="bottom" secondItem="Wec-Wi-6VT" secondAttribute="bottom" constant="30" id="Svq-CZ-hr9"/>
+                                    <constraint firstItem="Wec-Wi-6VT" firstAttribute="centerX" secondItem="fGv-bU-4Vx" secondAttribute="centerX" id="YZx-ni-ELV"/>
+                                    <constraint firstItem="9tf-S0-l7s" firstAttribute="centerX" secondItem="fGv-bU-4Vx" secondAttribute="centerX" id="gDO-gJ-um1"/>
+                                    <constraint firstItem="Wec-Wi-6VT" firstAttribute="top" secondItem="9tf-S0-l7s" secondAttribute="bottom" constant="15" id="gw4-4x-cHJ"/>
+                                    <constraint firstItem="9tf-S0-l7s" firstAttribute="top" secondItem="fGv-bU-4Vx" secondAttribute="top" constant="45" id="k2i-mX-XpR"/>
+                                    <constraint firstAttribute="height" constant="150" id="ngI-VA-GEJ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="JCc-WL-UVZ" firstAttribute="centerY" secondItem="jVv-Tg-zCu" secondAttribute="centerY" multiplier="0.7" id="8lU-Ty-Et3"/>
                             <constraint firstItem="Yr4-h5-1lI" firstAttribute="centerY" secondItem="jVv-Tg-zCu" secondAttribute="centerY" multiplier="0.7" id="HXG-h2-MN7"/>
+                            <constraint firstItem="fGv-bU-4Vx" firstAttribute="centerY" secondItem="jVv-Tg-zCu" secondAttribute="centerY" id="ITu-fn-8BM"/>
                             <constraint firstItem="JCc-WL-UVZ" firstAttribute="centerX" secondItem="jVv-Tg-zCu" secondAttribute="centerX" multiplier="0.5" id="NQj-V5-Gbg"/>
                             <constraint firstAttribute="centerX" secondItem="ff0-fw-SJf" secondAttribute="centerX" id="PQa-RI-j7Y"/>
                             <constraint firstItem="vP7-Ch-mSc" firstAttribute="centerX" secondItem="jVv-Tg-zCu" secondAttribute="centerX" multiplier="1.3" id="PzM-vu-FHj"/>
@@ -629,6 +660,7 @@
                             <constraint firstItem="jVl-7w-f09" firstAttribute="centerX" secondItem="jVv-Tg-zCu" secondAttribute="centerX" multiplier="0.5" id="gGC-bv-dtw"/>
                             <constraint firstItem="vP7-Ch-mSc" firstAttribute="centerY" secondItem="jVv-Tg-zCu" secondAttribute="centerY" multiplier="0.5" id="mYH-HE-Xdi"/>
                             <constraint firstItem="jVl-7w-f09" firstAttribute="centerY" secondItem="jVv-Tg-zCu" secondAttribute="centerY" multiplier="0.5" id="qNh-I5-lrJ"/>
+                            <constraint firstItem="fGv-bU-4Vx" firstAttribute="centerX" secondItem="jVv-Tg-zCu" secondAttribute="centerX" id="rfN-Aj-h3w"/>
                             <constraint firstItem="ff0-fw-SJf" firstAttribute="top" secondItem="oqp-IK-DUT" secondAttribute="bottom" constant="50" id="tBa-Eb-QPM"/>
                             <constraint firstAttribute="centerY" secondItem="FzL-85-zEH" secondAttribute="centerY" id="u1a-Fp-R8N"/>
                         </constraints>
@@ -639,6 +671,7 @@
                     <connections>
                         <outlet property="firstNameField" destination="vP7-Ch-mSc" id="gzt-0y-LOQ"/>
                         <outlet property="lastNameField" destination="Yr4-h5-1lI" id="GFV-se-aAI"/>
+                        <outlet property="savingIndicatorView" destination="fGv-bU-4Vx" id="nea-ld-T4f"/>
                         <outlet property="sendDataButton" destination="FzL-85-zEH" id="Jb5-hb-9yo"/>
                     </connections>
                 </viewController>
@@ -856,16 +889,48 @@ Ask the patient how much the symptoms bothered them in the past week</string>
                                 <rect key="frame" x="277" y="433" width="46" height="30"/>
                                 <state key="normal" title="View"/>
                                 <connections>
-                                    <action selector="viewButtonTapped:" destination="HJN-fz-Dhw" eventType="touchUpInside" id="GYO-fx-iFe"/>
+                                    <action selector="viewButtonTapped:" destination="HJN-fz-Dhw" eventType="touchUpInside" id="0ay-ET-e1r"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kdc-FX-Vwa">
+                                <rect key="frame" x="225" y="225" width="150" height="150"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Sh3-QA-ceB">
+                                        <rect key="frame" x="57" y="45" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Searching" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TVG-1e-g7q">
+                                        <rect key="frame" x="36.5" y="97" width="77" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="4Ph-GF-8on"/>
+                                    <constraint firstItem="TVG-1e-g7q" firstAttribute="centerX" secondItem="Kdc-FX-Vwa" secondAttribute="centerX" id="Ce0-rL-iAK"/>
+                                    <constraint firstItem="Sh3-QA-ceB" firstAttribute="centerX" secondItem="Kdc-FX-Vwa" secondAttribute="centerX" id="PpV-Wb-OQz"/>
+                                    <constraint firstAttribute="width" constant="150" id="Rzr-KN-05a"/>
+                                    <constraint firstItem="Sh3-QA-ceB" firstAttribute="top" secondItem="Kdc-FX-Vwa" secondAttribute="top" constant="45" id="W5B-DJ-SKZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="TVG-1e-g7q" secondAttribute="bottom" constant="30" id="epC-yR-2ZV"/>
+                                    <constraint firstItem="TVG-1e-g7q" firstAttribute="top" secondItem="Sh3-QA-ceB" secondAttribute="bottom" constant="15" id="mcV-Ks-EGv"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fKf-Cd-4Tc" firstAttribute="centerX" secondItem="nAh-11-nJb" secondAttribute="centerX" id="0ns-gj-LO0"/>
                             <constraint firstItem="yCz-Jt-pkG" firstAttribute="centerY" secondItem="nAh-11-nJb" secondAttribute="centerY" multiplier="1.2" id="2dK-nb-B16"/>
                             <constraint firstItem="fph-wX-jS5" firstAttribute="centerX" secondItem="nAh-11-nJb" secondAttribute="centerX" multiplier="1.3" id="4N1-S0-kGV"/>
+                            <constraint firstItem="Kdc-FX-Vwa" firstAttribute="centerX" secondItem="nAh-11-nJb" secondAttribute="centerX" id="4oT-GP-bPj"/>
                             <constraint firstItem="yCz-Jt-pkG" firstAttribute="centerX" secondItem="nAh-11-nJb" secondAttribute="centerX" multiplier="0.5" id="JsO-hb-0kB"/>
+                            <constraint firstItem="Kdc-FX-Vwa" firstAttribute="centerY" secondItem="nAh-11-nJb" secondAttribute="centerY" id="M9J-de-g0x"/>
                             <constraint firstItem="Vex-wW-IEd" firstAttribute="centerX" secondItem="nAh-11-nJb" secondAttribute="centerX" multiplier="1.3" id="ZtC-6R-Nru"/>
                             <constraint firstItem="Vex-wW-IEd" firstAttribute="centerY" secondItem="nAh-11-nJb" secondAttribute="centerY" id="cwS-ci-we7"/>
                             <constraint firstItem="4Lp-xy-7po" firstAttribute="centerY" secondItem="nAh-11-nJb" secondAttribute="centerY" id="dEK-Ao-gyc"/>
@@ -877,7 +942,8 @@ Ask the patient how much the symptoms bothered them in the past week</string>
                     <connections>
                         <outlet property="firstNameField" destination="Vex-wW-IEd" id="UfQ-kL-QJH"/>
                         <outlet property="lastNameField" destination="fph-wX-jS5" id="3fU-80-tLa"/>
-                        <segue destination="49e-Tb-3d3" kind="show" identifier="PatientLookupSegue" id="O1t-l7-fq0"/>
+                        <outlet property="searchingIndicatorView" destination="Kdc-FX-Vwa" id="V7k-jI-HuY"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="PatientLookupSegue" id="bbl-9u-E3Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mUz-wX-5my" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -927,6 +993,6 @@ Ask the patient how much the symptoms bothered them in the past week</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="O1t-l7-fq0"/>
+        <segue reference="bbl-9u-E3Y"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *firstNameField;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameField;
 @property (weak, nonatomic) IBOutlet UIButton *sendDataButton;
+@property (weak, nonatomic) IBOutlet UIView *savingIndicatorView;
+
 @property (nonatomic) UITextField* currentTextField;
 
 @end
@@ -41,7 +43,7 @@
     if ([sharedResponse isComplete]) {
         [self savePatientResponse:sharedResponse];
     } else {
-        [self showErrorAlert];
+        [self showErrorAlertWithMessage:@"Please go through all parts of questionnaire and fill in first and last name."];
     }
 }
 
@@ -55,16 +57,6 @@
     NSDictionary *part2 = [response.partTwoAnswers copy];
     NSDictionary *part3 = [response.partThreeAnswers copy];
     NSDictionary *part4 = [response.partFourAnswers copy];
-    
-    NSDictionary *userInfo = @{ @"firstName" : firstName,
-                                @"lastName" : lastName,
-                                @"Part1" : part1,
-                                @"Part2" : part2,
-                                @"Part3" : part3,
-                                @"Part4" : part4 };
-    
-    NSUInteger hash = [[firstName stringByAppendingString:lastName] hash];
-    [defaults setObject:userInfo forKey:[NSString stringWithFormat:@"%lu", (unsigned long)hash]];
     
     NSDictionary *params = @{ @"first_name" : firstName,
                               @"last_name" : lastName,
@@ -80,15 +72,29 @@
     
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
+    self.savingIndicatorView.hidden = NO;
+    
     [manager POST:@"https://desolate-bayou-99096.herokuapp.com/records/" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
+        self.savingIndicatorView.hidden = YES;
         self.sendDataButton.titleLabel.text = @"Data sent!";
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSString *body = [[NSString alloc] initWithData:operation.request.HTTPBody encoding:4];
-        NSLog(@"%@", body);
         NSLog(@"Error: %@", error);
+        self.savingIndicatorView.hidden = YES;
+        [self showErrorAlertWithMessage:@"Save operation failed"];
         
+        // Save user info locally
+        NSDictionary *userInfo = @{ @"firstName" : firstName,
+                                    @"lastName" : lastName,
+                                    @"Part1" : part1,
+                                    @"Part2" : part2,
+                                    @"Part3" : part3,
+                                    @"Part4" : part4 };
+        
+        NSUInteger hash = [[firstName stringByAppendingString:lastName] hash];
+        [defaults setObject:userInfo forKey:[NSString stringWithFormat:@"%lu", (unsigned long)hash]];
+
     }];
 }
 
@@ -135,9 +141,9 @@
     return sortedKeys;
 }
 
-- (void) showErrorAlert {
+- (void) showErrorAlertWithMessage:(NSString *)message {
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error!"
-                                                                   message:@"Please go through all parts of questionnaire and fill in first and last name."
+                                                                   message:message
                                                             preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *okAction = [UIAlertAction
                                actionWithTitle:NSLocalizedString(@"OK", @"OK action")

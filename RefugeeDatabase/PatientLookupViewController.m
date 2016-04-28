@@ -15,14 +15,17 @@ static NSString * const PatientLookupSegueIdentifier = @"PatientLookupSegue";
 @interface PatientLookupViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *firstNameField;
-
 @property (weak, nonatomic) IBOutlet UITextField *lastNameField;
+@property (weak, nonatomic) IBOutlet UIView *searchingIndicatorView;
 
 @end
 
 @implementation PatientLookupViewController
 
 - (IBAction)viewButtonTapped:(UIButton *)sender {
+    
+    self.searchingIndicatorView.hidden = NO;
+    
     NSString *firstName = self.firstNameField.text;
     NSString *lastName = self.lastNameField.text;
     
@@ -39,8 +42,10 @@ static NSString * const PatientLookupSegueIdentifier = @"PatientLookupSegue";
     [manager GET:@"https://desolate-bayou-99096.herokuapp.com/records/" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         if ([responseObject count] == 0) {
+            self.searchingIndicatorView.hidden = YES;
             [self showErrorAlertWithMessage:@"Patient not found in database. Please enter another first and last name."];
         } else {
+            self.searchingIndicatorView.hidden = YES;
             [[PatientResponse sharedResponse] resetResponse];
             [[PatientResponse sharedResponse] loadResponseFromDatabaseDictionary:responseObject[0]];
             [self performSegueWithIdentifier:PatientLookupSegueIdentifier sender:self];
@@ -49,9 +54,16 @@ static NSString * const PatientLookupSegueIdentifier = @"PatientLookupSegue";
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSString *body = [[NSString alloc] initWithData:operation.request.HTTPBody encoding:4];
         NSLog(@"%@", body);
+        self.searchingIndicatorView.hidden = YES;
         NSLog(@"Error: %@", error);
         
     }];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:PatientLookupSegueIdentifier]) {
+        
+    }
 }
 
 - (void) showErrorAlertWithMessage:(NSString *)message {

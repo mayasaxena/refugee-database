@@ -33,6 +33,9 @@
         } else if (sender.selectedSegmentIndex == 1) {
             answer = NO;
             [self selectNo];
+        } else {
+            answer = NO;
+            [self resetCell];
         }
         [self.delegate tableViewCell:self didChooseAnswer:answer];
     }
