@@ -42,8 +42,8 @@
     self.lastName = dictionary[@"last_name"];
     
     [self readInPartOneFromString:dictionary[@"part1"]];
-//    NSString *partTwo = dictionary[@"part2"];
-//    NSString *partThree = dictionary[@"part3"];
+    [self readInPartTwoFromString:dictionary[@"part2"]];
+    [self readInPartThreeFromString:dictionary[@"part3"]];
 //    NSString *partFour = dictionary[@"part4"];
 
 }
@@ -60,8 +60,48 @@
         i++;
     }
     
-    NSLog(@"%@", partOneAnswerDict);
     self.partOneAnswers = partOneAnswerDict;
+}
+
+- (void)readInPartTwoFromString:(NSString *)partTwoString {
+    //TODO: remove hardcoded delimiter
+    
+    NSMutableDictionary *partTwoAnswerDict = [NSMutableDictionary new];
+    
+    NSArray *partTwoAnswerArray = [partTwoString componentsSeparatedByString:@","];
+    int i = 0;
+    for (NSString *answer in partTwoAnswerArray) {
+        if (![answer isEqualToString:@""]) {
+            partTwoAnswerDict[[@(i) stringValue]] = answer;
+        }
+        i++;
+    }
+    
+    self.partTwoAnswers = partTwoAnswerDict;
+}
+
+- (void)readInPartThreeFromString:(NSString *)partThreeString {
+    //TODO: remove hardcoded delimiter
+    
+    NSMutableDictionary *partThreeAnswerDict = [NSMutableDictionary new];
+    
+    NSArray *partThreeAnswerArray = [partThreeString componentsSeparatedByString:@","];
+    int i = 0;
+    for (NSString *answer in partThreeAnswerArray) {
+        if (![answer isEqualToString:@""]) {
+            NSArray *answerArray = [answer componentsSeparatedByString:@":"];
+            NSMutableDictionary *subAnswerDict = [NSMutableDictionary new];
+            subAnswerDict[@"firstAnswer"] = (NSNumber *)answerArray[0];
+            subAnswerDict[@"secondAnswer"] = (NSNumber *)answerArray[1];
+            subAnswerDict[@"duration"] = (NSNumber *)answerArray[2];
+            
+            partThreeAnswerDict[[@(i) stringValue]] = subAnswerDict;
+        }
+        i++;
+    }
+    
+    NSLog(@"%@", partThreeAnswerDict);
+    self.partThreeAnswers = partThreeAnswerDict;
 }
 
 @end

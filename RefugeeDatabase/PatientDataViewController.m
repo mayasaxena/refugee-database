@@ -114,10 +114,15 @@
     NSArray *sortedKeys = [self getSortedKeysFromDictionary:dictionary];
     for (NSString *key in sortedKeys) {
         NSDictionary *valueDict = dictionary[key];
-        for (NSNumber *value in [valueDict allValues]) {
-            valueString = [valueString stringByAppendingString:[value stringValue]];
-            valueString = [valueString stringByAppendingString:@","];
-        }
+        NSNumber *firstAnswer = valueDict[@"firstAnswer"];
+        NSNumber *secondAnswer = valueDict[@"secondAnswer"];
+        NSNumber *duration = valueDict[@"duration"];
+        valueString = [valueString stringByAppendingString:[firstAnswer stringValue]];
+        valueString = [valueString stringByAppendingString:@":"];
+        valueString = [valueString stringByAppendingString:[secondAnswer stringValue]];
+        valueString = [valueString stringByAppendingString:@":"];
+        valueString = [valueString stringByAppendingString:[duration stringValue]];
+        valueString = [valueString stringByAppendingString:@","];
     }
     return valueString;
 }

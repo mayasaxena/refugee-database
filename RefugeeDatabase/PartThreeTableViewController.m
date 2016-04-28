@@ -71,16 +71,16 @@ static const float PartThreeQuestionFiveTableViewCellHeight = 160;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    //TODO: Fix to deal with no segment selected
     NSMutableDictionary *answerDict = self.answers[[@(indexPath.row) stringValue]];
-    if ([answerDict[@"firstAnswer"] boolValue]) {
+    if ([answerDict[@"firstAnswer"] boolValue] && [answerDict[@"secondAnswer"] boolValue]) {
+        return PartThreeQuestionTableViewCellExpandedTwiceHeight;
+    } else if ([answerDict[@"firstAnswer"] boolValue]) {
         if (indexPath.row == 4) {
             return PartThreeQuestionFiveTableViewCellHeight;
         } else {
             return PartThreeQuestionTableViewCellExpandedOnceHeight;
         }
-    } else if ([answerDict[@"firstAnswer"] boolValue] && [answerDict[@"secondAnswer"] boolValue]) {
-        return PartThreeQuestionTableViewCellExpandedTwiceHeight;
     } else {
         return PartThreeQuestionTableViewCellHeight;
     }
@@ -106,7 +106,6 @@ static const float PartThreeQuestionFiveTableViewCellHeight = 160;
     if (answerDict) {
         [cell setupCellWithAnswers:answerDict];
     }
-    
     return cell;
 }
 
