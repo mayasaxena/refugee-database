@@ -5,6 +5,57 @@ clone this repository. Once you've downloaded it, open `RefugeeDatabase.xcworksp
 This project uses CocoaPods, so you must open the `xcworkspace` file rather than
 the `xcodeproj` so the dependencies will work.
 
+#### App Structure
 
+Upon opening the app, the user is offered two choices, either to create a new
+patient record, or to look one up. If the user looks a patient up, they are 
+directed to a screen where they can enter identifying information. In either
+case, the user is directed to the main part of the app, with answers loaded or
+not accordingly.
+
+The main portion of the app is embedded in a tab controller that has 5 view
+controllers, 4 with each of the 4 parts of the questionnaire, and one to enter
+patient identifying information to store in the database or locally depending on
+Internet access.
+
+The 4 parts of the questionnaire all contain table view controller subclasses that
+have their own custom table view cells. Each cell's question text is populated from
+the appropriate text file in the Data folder in a method called `readQuestions`. (This
+could be refactored to take the file name and into a category so it's accessible
+by all the view controllers). The cells and the table view controllers are configured
+in `Main.storyboard`. 
+
+Each table view controller implements delegate and data source
+methods for a table view and the cells' heights are automatically calculated using
+the constraints on the cell and the estimated height. Each table view controller
+is also a delegate for its cells so that when a user selects an answer in a cell,
+the view controller responds by storing the answer. The answers are stored in a
+dictionary with the index of the question as the key and the answer (or answer dictionary)
+as the value. This is to avoid storing the questions over and over again. 
+
+When a user selects a tab, the app checks a `PatientResponse` model object that
+contains stored patient information. This model is shared between all parts of the
+app and is updated as answers change. If model contains answers, they are loaded.
+
+When a user leaves a tab, the answers stored in the view controller are saved in
+in the model object (the view controllers could be refactored to not use an internal
+answers dictionary but just immediately update the model object).
+
+After filling out all parts of the questionnaire, the user goes to the patient
+information tab, where their identifying information (currently only first and
+last name) is entered and the data can be saved to the database.
+
+The database backend is accessible through a RESTful API and the app interacts with
+it using the AFNetworking CocoaPod, which is included in the Podfile. The Podfile 
+also includes the SecureNSUserDefaults CocoaPod, which is used for 
+secure local storage, in the case that the POST request fails.
 
 ## Known Bugs
+
+When searching for a patient in the database, lookup is successful the first two
+times but fails the third time. I've tracked this bug as far as I could, and it
+seems to originate from an object being autoreleased before it's supposed to be.
+I hypothesize that the object being released is the sharedResponse, and when a
+view controller tries to read from the sharedResponse it throws an error. I
+have not been able to track down when or why the sharedResponse is being released,
+if that is the cause of the bug.

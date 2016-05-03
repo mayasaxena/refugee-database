@@ -19,5 +19,4 @@
     [[PatientResponse sharedResponse] resetResponse];
 }
 
-
 @end
