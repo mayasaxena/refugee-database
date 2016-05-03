@@ -7,8 +7,10 @@
 //
 
 #import "PatientDataViewController.h"
-#import <AFNetworking/AFNetworking.h>
 #import "PatientResponse.h"
+#import <AFNetworking/AFNetworking.h>
+#import <SecureNSUserDefaults/NSUserDefaults+SecureAdditions.h>
+
 
 @interface PatientDataViewController () <UITextFieldDelegate>
 
@@ -27,6 +29,7 @@
     [super viewDidLoad];
     self.firstNameField.delegate = self;
     self.lastNameField.delegate = self;
+    [[NSUserDefaults standardUserDefaults] setSecret:@"refugee_trauma_database"];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -93,7 +96,7 @@
                                     @"Part4" : part4 };
         
         NSUInteger hash = [[firstName stringByAppendingString:lastName] hash];
-        [defaults setObject:userInfo forKey:[NSString stringWithFormat:@"%lu", (unsigned long)hash]];
+        [defaults setSecretObject:userInfo forKey:[NSString stringWithFormat:@"%lu", (unsigned long)hash]];
 
     }];
 }
