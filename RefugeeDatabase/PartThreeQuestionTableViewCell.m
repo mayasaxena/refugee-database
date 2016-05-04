@@ -82,7 +82,7 @@ static const int PartThreeQuestionTableViewCellTextFieldCharacterLimit = 2;
             }
             
             if (duration) {
-                //TODO
+                //TODO: implement storing duration
             }
         } else {
             [self resetSegmentedControl:self.subQuestionOneControl];
@@ -134,6 +134,5 @@ replacementString:(NSString *)string  {
     NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
     return (([string isEqualToString:filtered])&&(newLength <= PartThreeQuestionTableViewCellTextFieldCharacterLimit));
 }
-
 
 @end

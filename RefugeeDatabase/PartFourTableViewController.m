@@ -30,7 +30,6 @@ static const int PartFourQuestionTableViewCellHeight = 100;
     } else {
         self.answers = [NSMutableDictionary new];
     }
-
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -60,12 +60,6 @@ static NSString * const PatientLookupSegueIdentifier = @"PatientLookupSegue";
     }];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:PatientLookupSegueIdentifier]) {
-        
-    }
-}
-
 - (void) showErrorAlertWithMessage:(NSString *)message {
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error!"
                                                                    message:message

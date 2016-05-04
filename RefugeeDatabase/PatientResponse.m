@@ -100,7 +100,6 @@
         i++;
     }
     
-    NSLog(@"%@", partThreeAnswerDict);
     self.partThreeAnswers = partThreeAnswerDict;
 }
 

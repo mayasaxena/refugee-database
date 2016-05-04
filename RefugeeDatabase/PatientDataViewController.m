@@ -96,7 +96,8 @@
                                     @"Part4" : part4 };
         
         NSUInteger hash = [[firstName stringByAppendingString:lastName] hash];
-        [defaults setSecretObject:userInfo forKey:[NSString stringWithFormat:@"%lu", (unsigned long)hash]];
+        [defaults setSecretObject:userInfo
+                           forKey:[NSString stringWithFormat:@"%lu", (unsigned long)hash]];
 
     }];
 }

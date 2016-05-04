@@ -5,6 +5,23 @@ clone this repository. Once you've downloaded it, open `RefugeeDatabase.xcworksp
 This project uses CocoaPods, so you must open the `xcworkspace` file rather than
 the `xcodeproj` so the dependencies will work.
 
+#### CocoaPods
+
+This app uses CocoaPods, a dependency manager for Cocoa projects. To run this
+project, you must install CocoaPods using the following steps
+
+- Open Terminal
+- Enter command: `sudo gem install cocoapods`
+- Enter your password
+
+> Wait for this to finish, don't touch your terminal.  It might take a couple minutes
+
+- Run command `pod setup`
+
+The dependencies that the Podfile installs are included in the git repository 
+so no additional commands should be needed after installation. If issues arise,
+run `pod install` in the project directory to update the dependencies. 
+
 #### App Structure
 
 Upon opening the app, the user is offered two choices, either to create a new
@@ -47,8 +64,8 @@ last name) is entered and the data can be saved to the database.
 
 The database backend is accessible through a RESTful API and the app interacts with
 it using the AFNetworking CocoaPod, which is included in the Podfile. The Podfile 
-also includes the SecureNSUserDefaults CocoaPod, which is used for 
-secure local storage, in the case that the POST request fails.
+also includes the SecureNSUserDefaults CocoaPod, which is used for secure local
+storage, in the case that the POST request fails. 
 
 ## Known Bugs
 
