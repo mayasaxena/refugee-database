@@ -1,11 +1,13 @@
 # Doctor Training App
 
+## Building the Project
+
 To get the app, navigate to the folder you want it to be in and
 clone this repository. Once you've downloaded it, open `RefugeeDatabase.xcworkspace` in Xcode
 This project uses CocoaPods, so you must open the `xcworkspace` file rather than
 the `xcodeproj` so the dependencies will work.
 
-#### CocoaPods
+### CocoaPods
 
 This app uses CocoaPods, a dependency manager for Cocoa projects. To run this
 project, you must install CocoaPods using the following steps
@@ -20,9 +22,16 @@ project, you must install CocoaPods using the following steps
 
 The dependencies that the Podfile installs are included in the git repository 
 so no additional commands should be needed after installation. If issues arise,
-run `pod install` in the project directory to update the dependencies. 
+run `pod install` in the project directory to update the dependencies.
 
-#### App Structure
+### Running the App
+
+Once you've installed CocoaPods and opened the `xcworkspace` file in Xcode, you
+can select the target in the simulator and click the Play button in Xcode to
+run the app in the simulator. You can also connect a iOS device to the computer
+and select it as the target to deploy to the device itself.
+
+## App Structure
 
 Upon opening the app, the user is offered two choices, either to create a new
 patient record, or to look one up. If the user looks a patient up, they are 
