@@ -76,6 +76,9 @@ it using the AFNetworking CocoaPod, which is included in the Podfile. The Podfil
 also includes the SecureNSUserDefaults CocoaPod, which is used for secure local
 storage, in the case that the POST request fails. 
 
+## Internationalization
+TODO
+
 ## Known Bugs
 
 When searching for a patient in the database, lookup is successful the first two

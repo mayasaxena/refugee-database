@@ -9,6 +9,7 @@
 #import "PatientLookupViewController.h"
 #import <AFNetworking/AFNetworking.h>
 #import "PatientResponse.h"
+#import "PatientDataUtil.h"
 
 static NSString * const PatientLookupSegueIdentifier = @"PatientLookupSegue";
 
@@ -43,7 +44,8 @@ static NSString * const PatientLookupSegueIdentifier = @"PatientLookupSegue";
         NSLog(@"JSON: %@", responseObject);
         if ([responseObject count] == 0) {
             self.searchingIndicatorView.hidden = YES;
-            [self showErrorAlertWithMessage:@"Patient not found in database. Please enter another first and last name."];
+            UIAlertController *alert = [PatientDataUtil errorAlertWithMessage:@"Patient not found in database. Please enter another first and last name."];
+            [self presentViewController:alert animated:NO completion:nil];
         } else {
             self.searchingIndicatorView.hidden = YES;
             [[PatientResponse sharedResponse] resetResponse];
@@ -58,19 +60,6 @@ static NSString * const PatientLookupSegueIdentifier = @"PatientLookupSegue";
         NSLog(@"Error: %@", error);
         
     }];
-}
-
-- (void) showErrorAlertWithMessage:(NSString *)message {
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error!"
-                                                                   message:message
-                                                            preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *okAction = [UIAlertAction
-                               actionWithTitle:NSLocalizedString(@"OK", @"OK action")
-                               style:UIAlertActionStyleDefault
-                               handler:nil];
-    
-    [alert addAction:okAction];
-    [self presentViewController:alert animated:NO completion:nil];
 }
 
 @end

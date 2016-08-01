@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString * const NSUserDefaultsKey = @"patient_data";
+static NSString * const SecureNSUserDefaultsSecret = @"refugee_trauma_database";
+
 @interface PatientResponse : NSObject
 
 @property (strong, nonatomic) NSString *firstName;

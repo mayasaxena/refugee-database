@@ -10,7 +10,7 @@
 #import "PatientResponse.h"
 #import <AFNetworking/AFNetworking.h>
 #import <SecureNSUserDefaults/NSUserDefaults+SecureAdditions.h>
-
+#import "PatientDataUtil.h"
 
 @interface PatientDataViewController () <UITextFieldDelegate>
 
@@ -29,7 +29,6 @@
     [super viewDidLoad];
     self.firstNameField.delegate = self;
     self.lastNameField.delegate = self;
-    [[NSUserDefaults standardUserDefaults] setSecret:@"refugee_trauma_database"];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -63,10 +62,10 @@
     
     NSDictionary *params = @{ @"first_name" : firstName,
                               @"last_name" : lastName,
-                              @"part1" : [self stringFromNumberDictionary:part1],
-                              @"part2" : [self stringFromStringDictionary:part2],
-                              @"part3" : [self stringFromNestedDictionary:part3],
-                              @"part4" : [self stringFromNumberDictionary:part4] };
+                              @"part1" : [PatientDataUtil stringFromNumberDictionary:part1],
+                              @"part2" : [PatientDataUtil stringFromStringDictionary:part2],
+                              @"part3" : [PatientDataUtil stringFromNestedDictionary:part3],
+                              @"part4" : [PatientDataUtil stringFromNumberDictionary:part4] };
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -85,7 +84,7 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         self.savingIndicatorView.hidden = YES;
-        [self showErrorAlertWithMessage:@"Save operation failed"];
+        [self showErrorAlertWithMessage:@"Save operation failed, saving data locally"];
         
         // Save user info locally
         NSDictionary *userInfo = @{ @"firstName" : firstName,
@@ -95,60 +94,22 @@
                                     @"Part3" : part3,
                                     @"Part4" : part4 };
         
+        NSMutableDictionary *patientInfo = [[defaults secretObjectForKey:NSUserDefaultsKey] mutableCopy];
+        
+        if (!patientInfo) {
+            patientInfo = [[NSMutableDictionary alloc] init];
+        }
+        
         NSUInteger hash = [[firstName stringByAppendingString:lastName] hash];
-        [defaults setSecretObject:userInfo
-                           forKey:[NSString stringWithFormat:@"%lu", (unsigned long)hash]];
+        patientInfo[@(hash)] = userInfo;
+        
+        [defaults setSecretObject:[patientInfo copy]
+                           forKey:NSUserDefaultsKey];
 
     }];
 }
 
-- (NSString *)stringFromNumberDictionary:(NSDictionary *)dictionary {
-    NSString *valueString = [NSString new];
-    NSArray *sortedKeys = [self getSortedKeysFromDictionary:dictionary];
-    for (NSString *key in sortedKeys) {
-        NSNumber *value = dictionary[key];
-        valueString = [valueString stringByAppendingString:[value stringValue]];
-        valueString = [valueString stringByAppendingString:@","];
-    }
-    return valueString;
-}
 
-- (NSString *)stringFromNestedDictionary:(NSDictionary *)dictionary {
-    NSString *valueString = [NSString new];
-    NSArray *sortedKeys = [self getSortedKeysFromDictionary:dictionary];
-    for (NSString *key in sortedKeys) {
-        NSDictionary *valueDict = dictionary[key];
-        NSNumber *firstAnswer = valueDict[@"firstAnswer"];
-        NSNumber *secondAnswer = valueDict[@"secondAnswer"];
-        NSNumber *duration = valueDict[@"duration"];
-        valueString = [valueString stringByAppendingString:[firstAnswer stringValue]];
-        valueString = [valueString stringByAppendingString:@":"];
-        valueString = [valueString stringByAppendingString:[secondAnswer stringValue]];
-        valueString = [valueString stringByAppendingString:@":"];
-        valueString = [valueString stringByAppendingString:[duration stringValue]];
-        valueString = [valueString stringByAppendingString:@","];
-    }
-    return valueString;
-}
-
-- (NSString *)stringFromStringDictionary:(NSDictionary *)dictionary {
-    NSString *valueString = [NSString new];
-    NSArray *sortedKeys = [self getSortedKeysFromDictionary:dictionary];
-    for (NSString *key in sortedKeys) {
-        NSString *value = dictionary[key];
-        valueString = [valueString stringByAppendingString:value];
-        valueString = [valueString stringByAppendingString:@","];
-    }
-    return valueString;
-}
-
-- (NSArray *)getSortedKeysFromDictionary:(NSDictionary *)dictionary {
-    NSArray * sortedKeys = [[dictionary allKeys] sortedArrayUsingComparator:^NSComparisonResult(NSString *obj1, NSString *obj2) {
-        return [obj1 compare:obj2 options:NSNumericSearch];
-    }];
-    
-    return sortedKeys;
-}
 
 - (void) showErrorAlertWithMessage:(NSString *)message {
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error!"

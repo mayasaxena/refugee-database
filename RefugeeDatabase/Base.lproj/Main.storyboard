@@ -822,22 +822,34 @@ Ask the patient how much the symptoms bothered them in the past week</string>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoS-ez-oeA">
+                                <rect key="frame" x="178" y="540" width="244" height="30"/>
+                                <state key="normal" title="Upload Local Patient Data to Server"/>
+                                <connections>
+                                    <action selector="localPatientDataUploadButtonTapped:" destination="LmT-Zs-MIQ" eventType="touchUpInside" id="fdq-oZ-3hk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="SdR-jB-E52" firstAttribute="top" secondItem="uoS-ez-oeA" secondAttribute="bottom" constant="30" id="3iF-dJ-G83"/>
                             <constraint firstItem="ngD-2G-Hyi" firstAttribute="top" secondItem="l81-N9-RwU" secondAttribute="bottom" constant="25" id="Pz5-zZ-yG5"/>
                             <constraint firstItem="SdR-jB-E52" firstAttribute="top" secondItem="ngD-2G-Hyi" secondAttribute="bottom" multiplier="1.2" id="Wif-HM-dUX"/>
                             <constraint firstItem="ngD-2G-Hyi" firstAttribute="centerX" secondItem="qNS-Ak-e0W" secondAttribute="centerX" id="bgo-9Z-QQa"/>
                             <constraint firstItem="gSV-tU-140" firstAttribute="centerX" secondItem="qNS-Ak-e0W" secondAttribute="centerX" id="dgA-aB-3g8"/>
+                            <constraint firstItem="uoS-ez-oeA" firstAttribute="centerX" secondItem="qNS-Ak-e0W" secondAttribute="centerX" id="h7Q-nL-72V"/>
                             <constraint firstItem="gSV-tU-140" firstAttribute="top" secondItem="VNp-To-493" secondAttribute="bottom" multiplier="3.5" id="kub-z8-7UA"/>
                             <constraint firstItem="l81-N9-RwU" firstAttribute="centerX" secondItem="qNS-Ak-e0W" secondAttribute="centerX" id="qvh-Tp-T4M"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="O0x-eJ-x4S"/>
+                    <connections>
+                        <outlet property="localPatientDataUploadButton" destination="uoS-ez-oeA" id="AJT-nm-NCX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GGx-QC-U6h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="22" y="-596"/>
+            <point key="canvasLocation" x="-10" y="-596"/>
         </scene>
         <!--Patient Lookup View Controller-->
         <scene sceneID="hsZ-t2-g7E">
@@ -993,6 +1005,6 @@ Ask the patient how much the symptoms bothered them in the past week</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bbl-9u-E3Y"/>
+        <segue reference="7zS-nN-yLH"/>
     </inferredMetricsTieBreakers>
 </document>
