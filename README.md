@@ -5,10 +5,19 @@
 To get the app, navigate to the folder you want it to be in and
 `git clone` this repository.
 
+### Running the App
+
+Once you've cloned the app open `RefugeeDatabase.xcworkspace` in Xcode.
+You must open the `xcworkspace` file rather than the `xcodeproj` file so that 
+the dependencies will run. After opening the file, you can select the target in 
+the simulator and click the Play button in Xcode to run the app in the simulator.
+To deploy to an iOS device, connect it to the computer with a USB cable and select
+it as the target in Xcode
+
 ### CocoaPods
 
-This app uses CocoaPods, a dependency manager for Cocoa projects. To run this
-project, you must install CocoaPods using the following steps:
+This app uses CocoaPods, a dependency manager for Cocoa projects. If issues arise
+with the Pods in the project, you must install Cocoapods using the following steps:
 
 - Open Terminal
 - Enter command: `sudo gem install cocoapods`
@@ -19,17 +28,10 @@ project, you must install CocoaPods using the following steps:
 - Run command `pod setup`
 
 The dependencies that the Podfile installs are included in the git repository 
-so no additional commands should be needed after installation. If issues arise,
-run `pod install` in the project directory to update the dependencies.
-
-### Running the App
-
-Once you've installed CocoaPods, open `RefugeeDatabase.xcworkspace` in Xcode.
-You must open the `xcworkspace` file rather than the `xcodeproj` file so that 
-the dependencies will run. After opening the file, you can select the target in 
-the simulator and click the Play button in Xcode to run the app in the simulator.
-To deploy to an iOS device, connect it to the computer with a USB cable and select
-it as the target in Xcode
+so this step is not required to run the project. However, if any issues arise
+with the Pods, or an update to the dependencies is desired,
+run `pod install` in the project directory. Warning: this may break the project
+if any of the updates contain breaking changes.
 
 ## App Structure
 
@@ -75,6 +77,12 @@ The database backend is accessible through a RESTful API and the app interacts w
 it using the AFNetworking CocoaPod, which is included in the Podfile. The Podfile 
 also includes the SecureNSUserDefaults CocoaPod, which is used for secure local
 storage, in the case that the POST request fails. 
+
+There is a button on the first screen of the app that appears only when there
+is local data stored on the device. When tapped, it goes through all the records
+and if possible uploads them to the database and removes the information from local
+storage. An alert will pop up after, telling the user if the upload succeeded or
+failed. If it failed, the data will remain on the device.
 
 ## Internationalization
 TODO
